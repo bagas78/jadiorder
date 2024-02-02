@@ -16,7 +16,7 @@ $tema = (isset($set->tema)) ? $set->tema: 0;
 $tema = $this->func->tema($tema);
 foreach($keyw->result() as $key){ $keywords .= ",".$key->nama; }
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
 	<title><?=$nama?></title>

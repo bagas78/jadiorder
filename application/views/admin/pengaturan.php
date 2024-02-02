@@ -24,6 +24,15 @@
 							<li class="nav-item">
 								<a class="nav-link" href="javascript:void(0)" data-link="#update"><span><i class="fas fa-plus"></i>Update Akun</span></a>
 							</li>
+
+							<?php if ($this->session->userdata('drp_status') == 1): ?>
+								
+								<li class="nav-item">
+									<a class="nav-link" href="javascript:void(0)" data-link="#penjualan"><span><i class="fas fa-shopping-basket"></i>Penjualan</span></a>
+								</li>
+
+							<?php endif ?>
+
 							<li class="nav-item">
 								<a class="nav-link" href="javascript:void(0)" data-link="logout" onclick="signoutNow()"><span><i class="fas fa-power-off"></i>Logout</span></a>
 							</li>
@@ -372,6 +381,63 @@
 
 										<div class="form-group">
 											<input required type="checkbox" name="setuju"> <a href="<?=base_url('update_akun/syarat')?>"><small>Setuju syarat dan ketentuan</small></a><br/><br/>
+
+											<button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-check-circle"></i> &nbsp;Kirim</button>
+										</div>
+
+									</form>
+
+								<?php endif ?>
+
+							</div>
+						</div>
+
+						<!-- PENJUALAN -->
+						<div class="tab-pane" id="penjualan">
+								<div class="row">
+									<div class="col-md-6 hidesmall font-bold text-primary">
+										<h4>Update Akun Penjualan</h4>
+									</div>
+								</div>
+							<div class="section p-all-30 table-responsive">
+
+								<?php if (@$status_penjualan['status'] == 2): ?>
+									
+									<!-- Di setujui -->
+									<span>Akun anda di setujui <i style="color: green;" class="fas fa-check"></i></span>
+
+								<?php endif ?>
+
+								<?php if (@$status_penjualan['status'] == 1): ?>
+									
+									<!-- Proses verifikasi -->
+									<span>Pendaftaran sedang proses verifikasi <i class="fas fa-spinner fa-pulse"></i></span>
+
+								<?php endif ?>
+
+								<?php if (!@$status_penjualan['status']): ?>
+
+									<!-- Belum Daftar -->
+
+									<form action="<?=base_url('update_akun/penjualan')?>" method="POST" enctype="multipart/form-data">
+										
+										<div class="form-group">
+											<label>Foto Sampel Barang</label>
+											<div class="custom-file">
+											    <input name="sample" type="file" class="custom-file-input" id="foto1" aria-describedby="foto1" accept="image/*">
+											    <label class="custom-file-label" for="foto1">Choose file</label>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label>Katalog <small class="text-danger">PDF / DOCX / DOC"</small></label>
+											<div class="custom-file">
+											    <input name="katalog" type="file" class="custom-file-input" id="katalog" aria-describedby="katalog" accept=".pdf, .docx, doc">
+											    <label class="custom-file-label" for="katalog">Choose file</label>
+											</div>
+										</div>
+
+										<div class="form-group">
 
 											<button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-check-circle"></i> &nbsp;Kirim</button>
 										</div>

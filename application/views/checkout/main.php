@@ -23,7 +23,7 @@
                             unset($_POST["idproduk"][$i]);
                         }
                     }else{
-                        unset($_POST["idproduk"][$i]);
+                        unset($_POST["idproduk"][$i]); 
                     }
                 }else{
                     unset($_POST["idproduk"][$i]);

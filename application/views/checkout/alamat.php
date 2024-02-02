@@ -114,7 +114,13 @@
                     <div class="m-t-10">
                         <button type="button" id="nodrop" class="btn btn-primary m-r-10"><i class="fa fa-check-square"></i> Tidak Dropship</button>
                         <div class="showsmall m-t-10"></div>
-                        <button type="button" id="yesdrop" class="btn btn-outline-primary"><i class="fa fa-check-square" style="display:none"></i> Dropship</button>
+
+                        <?php if ($this->session->userdata('drp_status') == 1): ?>
+                            
+                            <button type="button" id="yesdrop" class="btn btn-outline-primary"><i class="fa fa-check-square" style="display:none"></i> Dropship</button>
+
+                        <?php endif ?>
+                        
                     </div>
                     <div class="p-t-20" id="dropform" style="display:none;">
                         <div class="m-b-12">
@@ -123,11 +129,15 @@
                         </div>
                         <div class="m-b-12">
                             <label class="m-b-4">No Telepon</label>
-                            <input type="text" name="dropshipnomer" class="form-control col-md-8" placeholder="" />
+                            <input type="text" name="dropshipnomer" class="form-control" placeholder="" />
                         </div>
                         <div class="m-b-12">
-                            <label class="m-b-4">Alamat</label>
-                            <input type="text" name="dropshipalamat" class="form-control" placeholder="" />
+                            <label class="m-b-4">Kurir</label>
+                            <input type="text" name="dropshipkurir" class="form-control" placeholder="" />
+                        </div>
+                        <div class="m-b-12">
+                            <label class="m-b-4">Resi</label>
+                            <input type="text" name="dropshipresi" class="form-control" placeholder="" />
                         </div>
                     </div>
                 </div>
@@ -167,7 +177,18 @@
             $.post("<?=site_url("checkout/simpanalamat")?>",$(this).serialize(),function(msg){
                 var data = eval("("+msg+")");
                 if(data.success == true){
-                    loadKurir();
+
+                    if (data.dropship == true) {
+
+                        //resi otomatis
+                        loadBayar();    
+                    }else{
+
+                        //langsung
+                        loadKurir();
+                    }
+                    
+                    
                 }else{
                     swal.fire("Gagal Menyimpan Alamat","terjadi kesalahan saat menyimpan alamat Anda. Silahkan ulangi beberapa saat lagi","warning");
                 }
@@ -175,6 +196,8 @@
         });
 		
 		$("#nodrop").click(function(){
+
+            //langsung
 			$("#yesdrop").removeClass("btn-primary");
 			$("#yesdrop").addClass("btn-outline-primary");
 			$(this).removeClass("btn-outline-primary");
@@ -186,6 +209,8 @@
 			$("#dropform input").prop("required",false);
 		});
 		$("#yesdrop").click(function(){
+
+            //dropshipper
 			$("#nodrop").removeClass("btn-primary");
 			$("#nodrop").addClass("btn-outline-primary");
 			$(this).removeClass("btn-outline-primary");

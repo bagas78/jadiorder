@@ -16,7 +16,11 @@ class Manage extends CI_Controller {
 				$akun = $this->session->userdata('usrid');
 
 				$data['kota'] = $this->db->query("SELECT * FROM blw_kab")->result_array();
+				
 				$data['status'] = $this->db->query("SELECT * FROM blw_dropshipper WHERE akun = '$akun'")->row_array();
+
+				$data['status_penjualan'] = $this->db->query("SELECT * FROM blw_akun_penjualan WHERE akun = '$akun'")->row_array();
+
 				$data['bank_data'] = $this->db->query("SELECT * FROM blw_dropshipper_bank")->result_array();
 
 				//sesi dropshipper
@@ -34,7 +38,7 @@ class Manage extends CI_Controller {
 				$this->load->view("admin/pengaturan", $data);
 				$this->load->view("footv2");
 
-			}else{
+			}else{ 
 				//belum login
 				$this->load->view("headv2");
 				$this->load->view("main/sukses_verifikasi",array("belumverif"=>true));

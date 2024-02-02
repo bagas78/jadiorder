@@ -1,3 +1,5 @@
+<script type="text/javascript" src="<?= base_url('assets/js/number_format.js') ?>"></script>
+
 <?php
     $pre = $this->func->getPreBayar($_SESSION["prebayar"],"semua");
     $set = $this->func->globalset("semua");
@@ -17,7 +19,7 @@
     $kota = $this->func->getGudang($pre->gudang,"idkab");
     $kota = ($pre->gudang > 0) ? $this->func->getKab($kota,"semua") : $this->func->getKab($set->kota,"semua");
     $kota = $kota->tipe." ".$kota->nama;
-?>
+?> 
 <div class="row">
     <div class="col-md-8 m-b-30">
         <form id="cekout">
@@ -26,8 +28,7 @@
             <input type="hidden" id="diskon" value="0" />
             <input type="hidden" id="subtotal" value="<?php echo $pre->total; ?>" />
             <input type="hidden" id="ongkir" value="<?php echo $pre->ongkir; ?>" />
-            <input type="hidden" name="saldo" id="saldopotong" value="0" />
-            <input type="hidden" name="metode" id="metode" value="1" />
+            <input type="hidden" name="saldo" id="saldopotong" value="0" />e="metode" id="metode" value="1" />
             <input type="hidden" name="total" id="total" value="<?php echo $pre->total+$pre->ongkir; ?>" />
             <input type="hidden" name="biaya_cod" id="biayacod" value="<?php echo $biaya_cod; ?>" />
             <input type="hidden" name="metode_bayar" id="metode_bayar" value="0" />
@@ -57,10 +58,31 @@
             <div class="p-lr-12 p-tb-8 bg-foot rounded d-inline-block m-b-20">
                 <div class="font-medium"><i class="fas fa-map-marker-alt"></i> <?=$kota?></div>
             </div>
-            <div class="m-b-12 font-medium">Kurir Pengiriman</div>
-            <div class="p-lr-12 p-tb-8 bg-foot rounded d-inline-block">
-                <div class="font-medium"><?=$this->func->getKurir($pre->kurir,"nama")." - ".$this->func->getPaket($pre->paket,"nama")?></div>
-            </div>
+
+            <?php if ($pre->dropshipresi == ''): ?>
+                
+                <!-- kurir -->
+                <div class="m-b-12 font-medium">Kurir Pengiriman</div>
+                <div class="p-lr-12 p-tb-8 bg-foot rounded d-inline-block">
+                    <div class="font-medium"><?=$this->func->getKurir($pre->kurir,"nama")." - ".$this->func->getPaket($pre->paket,"nama")?></div>
+                </div>
+
+            <?php else: ?>
+
+                <!-- kurir -->
+                <div class="m-b-12 font-medium">Kurir</div>
+                <div class="p-lr-12 p-tb-8 bg-foot rounded d-inline-block m-b-20">
+                    <div class="font-medium"><?= $pre->dropshipkurir; ?></div>
+                </div>
+
+                <!-- resi -->
+                <div class="m-b-12 font-medium">Resi</div>
+                <div class="p-lr-12 p-tb-8 bg-foot rounded d-inline-block">
+                    <div class="font-medium"><?= $pre->dropshipresi; ?></div>
+                </div>
+
+            <?php endif ?>
+
         </div>
         <?php } ?>
         <div class="section p-all-24">
@@ -127,6 +149,7 @@
                 </div>
             </div>
             <?php if($pre->digital == 0){ ?>
+
             <div class="row">
                 <div class="col-6">
                     <p>Ongkos Kirim</p>
@@ -135,6 +158,7 @@
                     <p style="text-align: right">Rp <?php echo $this->func->formUang($pre->ongkir); ?></p>
                 </div>
             </div>
+
             <div class="row codon" style="display:none;">
                 <div class="col-6">
                     <p>Biaya COD</p>
@@ -161,6 +185,27 @@
                     <h5 style="text-align: right">Rp <span id="totalbayar"><?php echo $this->func->formUang($pre->total+$pre->ongkir); ?></span></h5>
                 </div>
             </div>
+
+            <hr>
+
+            <!--Hitung Laba-->
+            <div class="row">
+                <div class="col-4">
+                    <p>Harga Jual</p>
+                </div>
+                <div class="col-8 font-bold">
+                    <input type="text" id="hargajual" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <p>Keuntungan</p>
+                </div>
+                <div class="col-8 font-bold">
+                    <input readonly type="text" id="keuntungan" class="form-control">
+                </div>
+            </div>
+
         </div>
         <div class="section p-all-24">
             <?php if($koin > 0){ ?>
@@ -515,5 +560,31 @@
             $("#proses").hide();
         }
     }
+
+
+    //kalkulator keuntungan
+    $( document ).ready(function() {
+        
+        $('#hargajual').on("keyup", function(){
+          
+          var total = Number($('#totalbayar').text().replace('.', ''));
+          var hargajual = Number($(this).val());
+
+          var hasil = hargajual - total;
+
+          if (hasil < 0) {
+            num = 0;
+          }else{
+            num = hasil;
+          }
+
+          //tempel
+          $('#keuntungan').val(number_format(num));
+
+        });
+
+    }); 
+
 </script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>

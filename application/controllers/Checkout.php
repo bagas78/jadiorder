@@ -18,7 +18,7 @@ class Checkout extends CI_Controller {
 			die();
 		}*/
     }
-
+ 
     function index(){
 		if($this->func->cekLogin() == true || isset($_SESSION["usrid_temp"])){
 			$this->load->view("head_blank");
@@ -38,8 +38,15 @@ class Checkout extends CI_Controller {
     }
     function simpanalamat(){
         if(($this->func->cekLogin() == true || isset($_SESSION["usrid_temp"])) AND isset($_SESSION["prebayar"])){
+
 			$tipeco = (isset($_SESSION["usrid"])) ? 0 : 1;
+
+			//tidak dropship
+
 			if($_POST["alamat"] == "0"){
+
+				//alamat baru
+
 				if($tipeco == 0){
 					$this->db->where("usrid",$_SESSION["usrid"]);
 				}else{
@@ -53,6 +60,7 @@ class Checkout extends CI_Controller {
 					}
 					$this->db->where("usrid_temp",$_SESSION["usrid_temp"]);
 				}
+
 				$statusal = ($this->db->get("alamat")->num_rows() > 0) ? 0 : 1;
 				$alamat = array(
 					"status"	=> $statusal,
@@ -71,7 +79,11 @@ class Checkout extends CI_Controller {
 				$this->db->insert("alamat",$alamat);
 				$idalamat = $this->db->insert_id();
 				$tujuan = $_POST["idkec"];
+		
 			}else{
+
+				//alamat sudah ada 
+
 				$idalamat = $_POST["alamat"];
 				if($tipeco == 0){
 					$this->db->where("usrid",$_SESSION["usrid"]);
@@ -80,8 +92,11 @@ class Checkout extends CI_Controller {
 				}
 				$this->db->where("id",$idalamat);
 				$al = $this->db->get("alamat");
+
+				//keluar save
 				$idalamat = 0;
 				$tujuan = 0;
+
 				foreach($al->result() as $r){
 					$idalamat = $r->id;
 					$tujuan = $r->idkec;
@@ -89,18 +104,35 @@ class Checkout extends CI_Controller {
 			}
 
 			if($idalamat > 0 AND $tujuan > 0){
+
+				//jenis transaksi
+
+				//bukan dropshipper
 				$data = ["alamat"=>$idalamat,"tujuan"=>$tujuan];
-				if(isset($_POST["dropship"])){
+
+				//dropshipper
+				if(@$_POST["dropship"] != ''){
 					$data["dropship"] = $_POST["dropship"];
 					$data["dropshipnomer"] = $_POST["dropshipnomer"];
-					$data["dropshipalamat"] = $_POST["dropshipalamat"];
+					$data["dropshipresi"] = $_POST["dropshipresi"];
+					$data["dropshipkurir"] = $_POST["dropshipkurir"];
+
+					$send = ["success"=>true, "dropship" => true];
+				}else{
+
+					$send = ["success"=>true, "dropship" => false];
 				}
+
 				$this->db->where("id",$_SESSION["prebayar"]);
 				$this->db->update("pembayaran_pre",$data);
-				echo json_encode(["success"=>true]);
+				echo json_encode($send);
+
 			}else{
 				echo json_encode(["success"=>false]);
 			}
+
+			//end tidak sropship
+
 		}else{
             redirect("home/signin");
         }
@@ -354,7 +386,8 @@ class Checkout extends CI_Controller {
 				if($pre->dropship != ""){
 					$transaksi["dropship"] = $pre->dropship;
 					$transaksi["dropshipnomer"] = $pre->dropshipnomer;
-					$transaksi["dropshipalamat"] = $pre->dropshipalamat;
+					$transaksi["dropshipkurir"] = $pre->dropshipkurir;
+					$transaksi["dropshipresi"] = $pre->dropshipresi;
 				}
 				$this->db->insert("transaksi",$transaksi);
 				$idtransaksi = $this->db->insert_id();

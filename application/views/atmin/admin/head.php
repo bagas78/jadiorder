@@ -279,6 +279,30 @@
 						</a>
 					</li>
 
+					<li class="nav-title">AKUN PENJUAL</li>
+					<li class="nav-item <?php echo (isset($menu) AND $menu == 34) ? "active" : "" ?>">
+						<a href="#">
+							<i class="fas fa-users text-danger"></i>
+							<p>Verifikasi Akun</p>
+
+							<b class="badge badge-color2 alert-verfikasi-penjualan"></b>
+						</a>
+					</li>
+
+					<li class="nav-item <?php echo (isset($menu) AND $menu == 35) ? "active" : "" ?>">
+						<a href="#">
+							<i class="fa fa-th-large text-success"></i>
+							<p>Verifikasi Produk</p>
+						</a>
+					</li>
+
+					<li class="nav-item <?php echo (isset($menu) AND $menu == 36) ? "active" : "" ?>">
+						<a href="#">
+							<i class="fa fa-credit-card  text-info"></i>
+							<p>User Withdraw</p>
+						</a>
+					</li>
+
 					<li class="nav-title">PENGATURAN</li>
 					<li class="nav-item <?php echo (isset($menu) AND $menu == 29) ? "active" : "" ?>">
 						<a href="<?=site_url("atmin/ppob")?>">

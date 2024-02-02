@@ -11,7 +11,7 @@ class Update_akun extends CI_Controller {
 	}
 
 
-	public function save(){
+	public function save(){ 
 		$akun = $this->session->userdata('usrid');
 
 		if (@$_FILES['ktp']['name']) {
@@ -283,5 +283,58 @@ class Update_akun extends CI_Controller {
 
 		$data = $this->db->query("SELECT * FROM blw_dropshipper WHERE status = 2")->num_rows();
 		echo json_encode($data);
+	}
+
+
+	// UPDATE PENJUALAN //
+	public function penjualan(){ 
+
+		$akun = $this->session->userdata('usrid');
+		$path = 'assets/penjualan';
+
+		//upload sample
+
+		$typefile1 = explode('/', $_FILES['sample']['type']);
+		$filename1 = $_FILES['sample']['name'];
+
+		//replace name foto
+		$type1 = explode(".", $filename1);
+    	$no1 = count($type1) - 1;
+    	$new_name1 = 'sample_'.time().'.'.$type1[$no1];
+
+    	if (move_uploaded_file($_FILES['sample']['tmp_name'], $path.'/'.$new_name1)) {
+    		
+    		//upload katalog
+
+    		$typefile2 = explode('/', $_FILES['katalog']['type']);
+			$filename2 = $_FILES['katalog']['name'];
+
+			//replace name foto
+			$type2 = explode(".", $filename2);
+	    	$no2 = count($type2) - 1;
+	    	$new_name2 = 'katalog_'.time().'.'.$type2[$no2];
+
+	    	if (move_uploaded_file($_FILES['katalog']['tmp_name'], $path.'/'.$new_name2)) {
+
+	    		$set = array(	
+	    						'akun' => $akun,
+	    						'status' => 1,
+								'sample' => $path.'/'.$new_name1,
+								'katalog' => $path.'/'.$new_name2,
+							);
+
+				$this->db->set($set);
+
+				if ($this->db->insert('blw_akun_penjualan')) {
+					
+					$this->session->set_flashdata('success', 'Data berhasil di kirim');
+				}else{
+
+					$this->session->set_flashdata('fail', 'Data gagal di kirim');
+				}
+	    	}
+    	}
+
+		redirect(base_url('manage'));
 	}
 }
