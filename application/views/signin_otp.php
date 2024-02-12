@@ -43,6 +43,10 @@
                         <div class="m-t-20">
                             <button type="button" id="submit" onclick="submitChallenge()" class="btn btn-primary btn-block btn-lg">MASUK</button>
                         </div>
+
+                        <br/>
+                        <h5 id="masuk"></h5>
+
                     </form>
                 </div>
             </div>
@@ -52,6 +56,10 @@
 
 
 <script type="text/javascript">
+
+    $('#masuk').text('Masukan OTP : <?=@$this->session->flashdata('otp_bypass');?>');
+
+
   	$(function(){
   		$("#signin_otp").on("submit",function(e){
   			e.preventDefault();
@@ -82,6 +90,7 @@
   	});
 
     function submitChallenge(){
+
         var otp = $("#otp_1").val() + $("#otp_2").val() + $("#otp_3").val() + $("#otp_4").val() + $("#otp_5").val() + $("#otp_6").val();
   		var submit = $("#submit").html();
   		$(".form").prop("readonly",true);

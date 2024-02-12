@@ -281,7 +281,7 @@
 
 					<li class="nav-title">AKUN PENJUAL</li>
 					<li class="nav-item <?php echo (isset($menu) AND $menu == 34) ? "active" : "" ?>">
-						<a href="#">
+						<a href="<?=site_url("update_akun/verifikasi_penjualan")?>">
 							<i class="fas fa-users text-danger"></i>
 							<p>Verifikasi Akun</p>
 

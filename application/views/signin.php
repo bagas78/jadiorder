@@ -1,6 +1,6 @@
 <!-- Login -->
 <div style="margin-top:10vh">
-	<div class="container p-b-20">
+	<div class="container p-b-20"> 
 		<div class="m-b-30 text-center">
 			<img src="<?= base_url('assets/images/'.$set->logo) ?>" style="max-height:60px;max-width:60%;" />
 		</div>

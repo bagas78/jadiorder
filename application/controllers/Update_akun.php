@@ -17,12 +17,12 @@ class Update_akun extends CI_Controller {
 		if (@$_FILES['ktp']['name']) {
 				
 			$typefile = explode('/', $_FILES['ktp']['type']);
-			$filename = $_FILES['ktp']['name'];
+			$filename = $_FILES['ktp']['name']; 
 
 			//replace name foto
 			$type = explode(".", $filename);
 	    	$no = count($type) - 1;
-	    	$new_name = md5($akun).'_'.time().'.'.$type[$no];
+	    	$new_name = md5($akun).'_'.time().'.'.$type[$no];  
 
 	    	$path = 'assets/dropshipper';
 	        
@@ -327,14 +327,48 @@ class Update_akun extends CI_Controller {
 
 				if ($this->db->insert('blw_akun_penjualan')) {
 					
-					$this->session->set_flashdata('success', 'Data berhasil di kirim');
+					$this->session->set_flashdata('success_1', 'Data berhasil di kirim');
 				}else{
 
-					$this->session->set_flashdata('fail', 'Data gagal di kirim');
+					$this->session->set_flashdata('fail_1', 'Data gagal di kirim');
 				}
 	    	}
     	}
 
 		redirect(base_url('manage'));
+	}
+
+	
+	function verifikasi_penjualan(){
+
+		$data['data'] = $this->db->query("SELECT a.id as id, a.sample AS sample, a.katalog AS katalog, a.status AS status, b.nama AS nama FROM blw_akun_penjualan AS a JOIN blw_userdata AS b ON a.akun = b.id WHERE a.hapus = 0")->result_array();
+
+		$this->load->view('atmin/admin/head',["menu"=>34]);
+		$this->load->view('penjual/verifikasi', $data);
+		$this->load->view('atmin/admin/foot');
+	}
+	function verifikasi_penjualan_delete($id){
+
+		$this->db->set('hapus', 1);
+		$this->db->where('id', $id);
+		if ($this->db->update('blw_akun_penjualan')) {
+			$this->session->set_flashdata('success', 'Data berhasil di hapus');
+		}else{
+			$this->session->set_flashdata('fail', 'Data gagal di hapus');
+		}
+
+		redirect(base_url('update_akun/verifikasi_penjualan'));
+	}
+	function verifikasi_penjualan_add($id){
+
+		$this->db->set('status', 2);
+		$this->db->where('id', $id);
+		if ($this->db->update('blw_akun_penjualan')) {
+			$this->session->set_flashdata('success', 'Data berhasil di hapus');
+		}else{
+			$this->session->set_flashdata('fail', 'Data gagal di hapus');
+		}
+
+		redirect(base_url('update_akun/verifikasi_penjualan'));
 	}
 }

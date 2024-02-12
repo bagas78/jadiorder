@@ -1,6 +1,6 @@
 <!-- sweet alert -->
 <script type="text/javascript" src="<?= base_url('assets/vendor/swal/sweetalert2.min.js') ?>"></script>
-
+ 
 <!-- Container -->
 	<div class="m-t-30">
 		<div class="container m-b-75">
@@ -1143,6 +1143,22 @@
   			
   			//click update akun
 	  		$('body > div.m-t-30 > div > div > div.col-md-3 > div > ul > li:nth-child(5) > a').click();	
+  		
+		});
+		
+  	<?php endif ?>
+  	<?php if ($this->session->flashdata('fail')): ?>
+  		swal.fire("Gagal!","<?=$this->session->flashdata('fail')?>","error");
+  	<?php endif ?>
+
+  	//update penjualan
+  	<?php if ($this->session->flashdata('success_1')): ?>
+  		swal.fire("Berhasil!","<?=$this->session->flashdata('success_1')?>","success");
+
+  		$(document).ready(function() {
+  			
+  			//click update akun
+	  		$('body > div.m-t-30 > div > div > div.col-md-3 > div > ul > li:nth-child(6) > a').click();	
   		
 		});
 		

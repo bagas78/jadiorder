@@ -28,7 +28,8 @@
             <input type="hidden" id="diskon" value="0" />
             <input type="hidden" id="subtotal" value="<?php echo $pre->total; ?>" />
             <input type="hidden" id="ongkir" value="<?php echo $pre->ongkir; ?>" />
-            <input type="hidden" name="saldo" id="saldopotong" value="0" />e="metode" id="metode" value="1" />
+            <input type="hidden" name="saldo" id="saldopotong" value="0" />
+            <input type="hidden" name="metode" id="metode" value="1" />
             <input type="hidden" name="total" id="total" value="<?php echo $pre->total+$pre->ongkir; ?>" />
             <input type="hidden" name="biaya_cod" id="biayacod" value="<?php echo $biaya_cod; ?>" />
             <input type="hidden" name="metode_bayar" id="metode_bayar" value="0" />
