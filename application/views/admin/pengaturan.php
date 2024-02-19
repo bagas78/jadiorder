@@ -2,7 +2,7 @@
 <script type="text/javascript" src="<?= base_url('assets/vendor/swal/sweetalert2.min.js') ?>"></script>
  
 <!-- Container -->
-	<div class="m-t-30">
+	<div class="m-t-30"> 
 		<div class="container m-b-75">
 			<h3 class="text-primary font-bold m-b-30">Akun Saya</h3>
 			<div class="row">
@@ -405,6 +405,10 @@
 									
 									<!-- Di setujui -->
 									<span>Akun anda di setujui <i style="color: green;" class="fas fa-check"></i></span>
+
+									<!-- upload produk -->
+									<br/><br/>
+									<a href="<?=base_url('upload_produk')?>"><button class="btn btn-primary">Upload produk <i class="fa fa-plus"></i></button></a>
 
 								<?php endif ?>
 
