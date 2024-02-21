@@ -322,11 +322,18 @@
 				dropdownParent: $(this).next('.dropDownSelect2')
 			});
 		});
+		$('.select2').select2({theme: "bootstrap4",width:'resolve'});
 	</script>
 	<script type="text/javascript" src="<?= base_url('assets/vendor/slick/slick.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= base_url('assets/vendor/swal/sweetalert2.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= base_url('assets/js/main.js') ?>"></script>
 	<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+	<script src="<?= base_url('assets/atmin/js/moment.min.js') ?>"></script>
+	<script src="<?= base_url('assets/vendor/summernote/summernote-bs4.js') ?>"></script>
+	<script src="<?= base_url('assets/atmin/js/bootstrap-datetimepicker.js') ?>"></script>
+
+
 	<script type="text/javascript">
 		$(function(){
 			$(".countdown").each(function(){

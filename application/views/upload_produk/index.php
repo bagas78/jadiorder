@@ -12,7 +12,7 @@
 <div class="card-pj">
 	
 	<a href="javascript:void(0)" onclick="importProduk()" class="btn btn-primary float-right"><i class="fas fa-download"></i> Impor Excel</a>
-	<a href="<?=site_url("atmin/manage/produkform")?>" class="btn btn-success float-right m-r-10"><i class="fas fa-plus-circle"></i> Produk Baru</a>
+	<a href="<?=site_url("upload_produk/add")?>" class="btn btn-success float-right m-r-10"><i class="fas fa-plus-circle"></i> Produk Baru</a>
 	<h4 class="page-title">Daftar Produk</h4>
 	<br/>
 	<div class="card">
@@ -108,7 +108,7 @@
 		function refreshTabel(page){
 			$(".card-body").html('<i class="fas fa-spin fa-spinner"></i> Loading data...');
 			var perpage = $("#perpage").val();
-			$.post("<?=site_url("atmin/manage/produk?load=true")?>&page="+page+"&perpage="+perpage,{"cari":$("#cari").val(),"status":$("#status").val(),[$("#names").val()]:$("#tokens").val()},function(msg){
+			$.post("<?=site_url("upload_produk/produk?load=true")?>&page="+page+"&perpage="+perpage,{"cari":$("#cari").val(),"status":$("#status").val(),[$("#names").val()]:$("#tokens").val()},function(msg){
 				var data = eval("("+msg+")");
 				updateToken(data.token);
 				$(".card-body").html(data.result);
