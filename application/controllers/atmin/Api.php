@@ -13,10 +13,10 @@ class Api extends CI_Controller {
 	}
 
 	public function index(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		redirect();
 	}
@@ -85,10 +85,10 @@ class Api extends CI_Controller {
 	
 	// CETAK MENCETAK
 	function cetakInvoice(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_GET["type"]) AND $_GET["type"] = "thermal"){
 			$this->load->view("atmin/print/invoice-thermal");
@@ -97,18 +97,18 @@ class Api extends CI_Controller {
 		}
 	}
 	function cetakLabel(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		$this->load->view("atmin/print/label");
 	}
 	function cekupdatenotif(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		$jmlpesanan = $this->admfunc->getJmlPesanan();
 		$jmlpesan = $this->admfunc->getJmlPesan();
@@ -117,10 +117,10 @@ class Api extends CI_Controller {
 		echo json_encode(["jmlpesanan"=>$jmlpesanan,"jmlpesan"=>$jmlpesan,"jmltopup"=>$jmltopup,"jmltarik"=>$jmltarik]); //,"token"=> $this->security->get_csrf_hash()
 	}
 	function tescoba(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		$this->db->where("status = 2 AND resi != ''");
 		$trx = $this->db->get("transaksi");
@@ -138,10 +138,10 @@ class Api extends CI_Controller {
 	
 	// KURIR
 	function aktifkankurir(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["push"])){
 			$toko = $this->admfunc->globalset("kurir");
@@ -158,10 +158,10 @@ class Api extends CI_Controller {
 		}
 	}
 	function nonaktifkankurir(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["push"])){
 			$toko = $this->admfunc->globalset("kurir");
@@ -183,10 +183,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function lacakiriman(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_GET["orderid"])){
 			$set = $this->admfunc->globalset("rajaongkir");
@@ -298,10 +298,10 @@ class Api extends CI_Controller {
 
 	// IMPORT PRODUK
 	public function import(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST)){
 			$config['upload_path'] = './cdn/import/';
@@ -407,10 +407,10 @@ class Api extends CI_Controller {
 	
 	// TAMBAH UBAH PRODUK
 	public function hapusProduk(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			//$_POST["id"] = intval(["id"]);
@@ -432,10 +432,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function tambahProduk(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST)){
 			if($_SESSION["uploadedPhotos"] != 0){
@@ -497,10 +497,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function updateproduk(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			//$_POST["id"] = $this->clean($_POST["id"]);
@@ -533,10 +533,10 @@ class Api extends CI_Controller {
 		}
 	}
 	function hapusgrosir(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST)){
 			$this->db->where("id",$_POST["id"]);
@@ -548,10 +548,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function varianadd(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST)){
 			$data = [
@@ -614,10 +614,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function subvarianadd(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST)){
 			$this->db->where("idproduk",$_POST["produk"]);
@@ -661,10 +661,10 @@ class Api extends CI_Controller {
 		}
 	}
 	function varianhapus(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST)){
 			$this->db->where("idproduk",$_POST["produk"]);
@@ -677,10 +677,10 @@ class Api extends CI_Controller {
 		}
 	}
 	function subvarianhapus(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST)){
 			$this->db->where("idproduk",$_POST["produk"]);
@@ -693,10 +693,10 @@ class Api extends CI_Controller {
 		}
 	}
 	function variansave($id=0){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["harga"])){
 			$stok = 0;
@@ -803,10 +803,10 @@ class Api extends CI_Controller {
 
 	// HALAMAN STATIS
 	function halaman(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["formid"])){
 			//$_POST["formid"] = intval(["formid"]);
@@ -826,10 +826,10 @@ class Api extends CI_Controller {
 		}
 	}
 	function updatehalaman(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			if(isset($_POST[$this->security->get_csrf_token_name()])){ unset($_POST[$this->security->get_csrf_token_name()]); }
@@ -851,10 +851,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function hapushalaman(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			//$_POST["id"] = intval(["id"]);
@@ -868,10 +868,10 @@ class Api extends CI_Controller {
 	
 	// PESANAN
 	function detailpesanan(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_GET["theid"])){
 			$this->load->view("atmin/admin/pesanandetail");
@@ -880,10 +880,10 @@ class Api extends CI_Controller {
 		}
 	}
 	function updatepreorder(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			//$_POST["id"] = intval(["id"]);
@@ -898,10 +898,10 @@ class Api extends CI_Controller {
 		}
 	}
 	function updatepesanan(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			$status = isset($_POST["status"]) ? $_POST["status"] : 1;
@@ -996,10 +996,10 @@ class Api extends CI_Controller {
 		}
 	}
 	function batalkanpesanan($by=null){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			//$_POST["id"] = intval(["id"]);
@@ -1127,10 +1127,10 @@ class Api extends CI_Controller {
 		}
 	}
 	function inputresi(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["theid"])){
 			//$_POST["theid"] = intval(["theid"]);
@@ -1178,10 +1178,10 @@ class Api extends CI_Controller {
 
 	// FORM VARIASI PRODUK
 	public function variasiform($idpro=0){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		$data = $this->load->view("atmin/admin/produkformvariasi",array("id"=>$idpro),true);
 		echo json_encode(array("success"=>true,"data"=>$data,"token"=> $this->security->get_csrf_hash()));
@@ -1189,10 +1189,10 @@ class Api extends CI_Controller {
 
 	// FILE UPLOAD
 	public function jadikanFotoUtama($id){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		$idproduk = (isset($_POST["idproduk"])) ? intval($_POST["idproduk"]) : 0;
 		$this->db->where("idproduk",$idproduk);
@@ -1205,10 +1205,10 @@ class Api extends CI_Controller {
 		echo json_encode(array("success"=>true,"token"=> $this->security->get_csrf_hash()));
 	}
 	public function hapusFotoProduk($id){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if($id == "all"){
 			$idproduk = (isset($_POST["idproduk"])) ? intval($_POST["idproduk"]) : 0;
@@ -1271,19 +1271,19 @@ class Api extends CI_Controller {
 		echo json_encode(array("success"=>true,"token"=> $this->security->get_csrf_hash()));
 	}
 	public function uploadFotoResult($idpro=0){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		$data = $this->load->view("atmin/admin/produkuploadfoto",array("idproduk"=>$idpro),true);
 		echo json_encode(array("success"=>true,"data"=>$data,"token"=> $this->security->get_csrf_hash()));
 	}
 	public function uploadFotoProduk(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST)){
 			//$_POST["idproduk"] = intval(["idproduk"]);
@@ -1335,10 +1335,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function uploadLogo($tipe=1){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST)){
 			$type = $tipe == 1 ? "logo" : "favicon";
@@ -1371,10 +1371,10 @@ class Api extends CI_Controller {
 
 	// BLOG
 	public function hapusblog(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			//$_POST["id"] = intval(["id"]);
@@ -1392,10 +1392,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function uploadblog($id=0){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST)){
 			if(isset($_SESSION["fotoPage"])){
@@ -1448,10 +1448,10 @@ class Api extends CI_Controller {
 	
 	// PESAN KOTAK MASUK
 	public function pesanmasuk($usrid){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($usrid)){
 			$this->db->where("(dari = 0 AND tujuan = ".$usrid.") OR (dari = ".$usrid." AND tujuan = 0)");
@@ -1533,10 +1533,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function kirimpesan(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST['isipesan']) AND intval($_POST["tujuan"]) > 0){
 			$idproduk = (isset($_POST["idproduk"])) ? intval($_POST["idproduk"]) : 0;
@@ -1581,10 +1581,10 @@ class Api extends CI_Controller {
 	
 	/* RESELLER AGEN */
 	public function tambahagen(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			//$_POST["id"] = intval(["id"]);
@@ -1641,10 +1641,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function hapusagen(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 
 		if(isset($_POST)){
 			//$_POST["id"] = intval(["id"]);
@@ -1684,10 +1684,10 @@ class Api extends CI_Controller {
 		}
 	}
 	function getusrid(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_GET["level"])){
 			//$_POST["level"] = intval(["level"]);
@@ -1707,10 +1707,10 @@ class Api extends CI_Controller {
 	
 	/* VOUCHER */
 	public function voucher(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_GET["load"])){
 			$res = $this->load->view("atmin/admin/voucherlist","",true);
@@ -1748,10 +1748,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function tambahvoucher(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			if(isset($_POST[$this->security->get_csrf_token_name()])){ unset($_POST[$this->security->get_csrf_token_name()]); }
@@ -1780,10 +1780,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function hapusvoucher(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		if(isset($_POST["id"])){
 			//$_POST["id"] = intval(["id"]);
 			$this->db->where("id",intval($_POST["id"]));
@@ -1796,10 +1796,10 @@ class Api extends CI_Controller {
 	
 	/* TESTIMONI */
 	public function testimoni(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_GET["load"])){
 			$res = $this->load->view("atmin/admin/testimonilist","",true);
@@ -1825,10 +1825,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function tambahtestimoni(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			if(isset($_POST[$this->security->get_csrf_token_name()])){ unset($_POST[$this->security->get_csrf_token_name()]); }
@@ -1878,10 +1878,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function hapustestimoni(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		if(isset($_POST["id"])){
 			$testi = (isset($_POST["id"])) ? intval($_POST["id"]) : 0;
 			$this->db->where("id",$testi);
@@ -1903,10 +1903,10 @@ class Api extends CI_Controller {
 	
 	/* BROADCAST */
 	public function broadcast(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_GET["load"])){
 			$res = $this->load->view("atmin/admin/broadcastlist",["jenis"=>2],true);
@@ -1916,10 +1916,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function tambahbroadcast($id=null){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		$tgl = date("Y-m-d H:i:s");
 		$gambar = "";
 		$rilis = $_POST["tgl"]." ".$_POST["jam"];
@@ -1955,10 +1955,10 @@ class Api extends CI_Controller {
 		echo json_encode(["success"=>true,"token"=> $this->security->get_csrf_hash()]);
 	}
 	public function updatebroadcast(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 
 		//unset($_POST)
 		if(isset($_POST[$this->security->get_csrf_token_name()])){ unset($_POST[$this->security->get_csrf_token_name()]); }
@@ -1967,10 +1967,10 @@ class Api extends CI_Controller {
 		echo json_encode(["success"=>true,"token"=> $this->security->get_csrf_hash()]);
 	}
 	public function hapusbroadcast(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		$this->db->where("id",$_POST["id"]);
 		$this->db->delete("broadcast");
 		echo json_encode(["success"=>true,"token"=> $this->security->get_csrf_hash()]);
@@ -1978,10 +1978,10 @@ class Api extends CI_Controller {
 	
 	/* SALDO */
 	public function topup(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_GET["load"])){
 			$res = $this->load->view("atmin/admin/saldolist",["jenis"=>2],true);
@@ -1991,10 +1991,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function tambahtopup(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		$saldo = $this->admfunc->getSaldo($_POST["usrid"],"semua");
 		$saldototal = $saldo->saldo + intval($_POST["total"]);
@@ -2037,10 +2037,10 @@ class Api extends CI_Controller {
 		echo json_encode(["success"=>true,"token"=> $this->security->get_csrf_hash()]);
 	}
 	public function updatetopup(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		$st = $this->admfunc->getSaldotarik($_POST["id"],"semua");
 		$sal = $this->admfunc->getSaldo($st->usrid,"semua");
@@ -2078,10 +2078,10 @@ class Api extends CI_Controller {
 		echo json_encode(["success"=>true,"token"=> $this->security->get_csrf_hash()]);
 	}
 	public function bataltopup(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 
 		$tgl = date("Y-m-d H:i:s");
 		$this->db->where("id",$_POST["id"]);
@@ -2090,10 +2090,10 @@ class Api extends CI_Controller {
 		echo json_encode(["success"=>true,"token"=> $this->security->get_csrf_hash()]);
 	}
 	public function tarik(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_GET["load"])){
 			$res = $this->load->view("atmin/admin/saldolist",["jenis"=>1],true);
@@ -2103,10 +2103,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function updatetarik(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		$tgl = date("Y-m-d H:i:s");
 
 		$this->db->where("id",$_POST["id"]);
@@ -2115,10 +2115,10 @@ class Api extends CI_Controller {
 		echo json_encode(["success"=>true,"token"=> $this->security->get_csrf_hash()]);
 	}
 	public function bataltarik(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		$st = $this->admfunc->getSaldotarik($_POST["id"],"semua");
 		$sal = $this->admfunc->getSaldo($st->usrid,"semua");
@@ -2161,10 +2161,10 @@ class Api extends CI_Controller {
 	
 	/* SALES BOSTER */
 	public function booster(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_GET["load"])){
 			$res = $this->load->view("atmin/admin/boosterlist","",true);
@@ -2188,10 +2188,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function tambahbooster(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			if(isset($_POST[$this->security->get_csrf_token_name()])){ unset($_POST[$this->security->get_csrf_token_name()]); }
@@ -2213,10 +2213,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function hapusbooster(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		if(isset($_POST["id"])){
 			//$_POST["id"] = intval(["id"]);
 			$this->db->where("id",intval($_POST["id"]));
@@ -2229,10 +2229,10 @@ class Api extends CI_Controller {
 	
 	/* REKENING */
 	public function rekening(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_GET["load"])){
 			$this->load->view("atmin/admin/rekeninglist");
@@ -2255,10 +2255,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function tambahrekening(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			if(isset($_POST[$this->security->get_csrf_token_name()])){ unset($_POST[$this->security->get_csrf_token_name()]); }
@@ -2284,10 +2284,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function hapusrekening(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		if(isset($_POST["id"])){
 			$this->db->where("id",intval($_POST["id"]));
 			$this->db->delete("rekening");
@@ -2299,18 +2299,18 @@ class Api extends CI_Controller {
 	
 	/* KURIR */
 	public function kurir(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		$this->load->view("atmin/admin/paketkurirlist");
 	}
 	public function getkurir(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		$rek = $this->admfunc->getKurir(intval($_POST["id"]),"semua");
 		$data = [
@@ -2322,10 +2322,10 @@ class Api extends CI_Controller {
 		echo json_encode($data);
 	}
 	public function kurirsave(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			if(isset($_POST[$this->security->get_csrf_token_name()])){ unset($_POST[$this->security->get_csrf_token_name()]); }
@@ -2346,10 +2346,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function hapuskurir(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		if(isset($_POST["id"])){
 			$this->db->where("id",intval($_POST["id"]));
 			$this->db->delete("kurir");
@@ -2365,10 +2365,10 @@ class Api extends CI_Controller {
 
 	/* PAKET */
 	public function getpaket(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		$rek = $this->admfunc->getPaket(intval($_POST["id"]),"semua");
 		$data = [
@@ -2383,10 +2383,10 @@ class Api extends CI_Controller {
 		echo json_encode($data);
 	}
 	public function paketsave(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			if(isset($_POST[$this->security->get_csrf_token_name()])){ unset($_POST[$this->security->get_csrf_token_name()]); }			
@@ -2405,10 +2405,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function hapuspaket(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			$this->db->where("id",intval($_POST["id"]));
@@ -2423,10 +2423,10 @@ class Api extends CI_Controller {
 
 	// PESANAN
 	public function terimapesanan(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			$this->db->where("id",$_POST["id"]);
@@ -2485,18 +2485,18 @@ class Api extends CI_Controller {
 
 	/* ONGKIR CUSTOM */
 	public function ongkir(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		$this->load->view("atmin/admin/paketkurirongkir");
 	}
 	public function getongkir(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		$rek = $this->admfunc->getOngkir(intval($_POST["id"]),"semua");
 		$data = [
@@ -2513,10 +2513,10 @@ class Api extends CI_Controller {
 		echo json_encode($data);
 	}
 	public function ongkirsave(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			if(isset($_POST[$this->security->get_csrf_token_name()])){ unset($_POST[$this->security->get_csrf_token_name()]); }
@@ -2536,10 +2536,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function hapusongkir(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		if(isset($_POST["id"])){
 			$this->db->where("id",intval($_POST["id"]));
 			$this->db->delete("kurircustom");
@@ -2551,10 +2551,10 @@ class Api extends CI_Controller {
 	
 	/* WHATSAPP */
 	public function wasap(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_GET["load"])){
 			$this->load->view("atmin/admin/wasaplist");
@@ -2573,10 +2573,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function tambahwasap(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			if(isset($_POST[$this->security->get_csrf_token_name()])){ unset($_POST[$this->security->get_csrf_token_name()]); }
@@ -2598,10 +2598,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function hapuswasap(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 
 		if(isset($_POST["id"])){
 			//$_POST["id"] = intval(["id"]);
@@ -2615,10 +2615,10 @@ class Api extends CI_Controller {
 	
 	/* USER MANAJER */
 	public function usermanajer(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if($this->admfunc->demo() == true){
 			echo json_encode(["result"=>"maaf, fitur tidak tersedia untuk mode demo aplikasi","token"=>$this->security->get_csrf_hash()]);
@@ -2642,10 +2642,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function hapususer(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 
 		if(isset($_POST["id"])){
 			//$_POST["id"] = intval(["id"]);
@@ -2657,10 +2657,10 @@ class Api extends CI_Controller {
 		}
 	}
 	public function tambahuser(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST["id"])){
 			if(isset($_POST[$this->security->get_csrf_token_name()])){ unset($_POST[$this->security->get_csrf_token_name()]); }
@@ -2693,10 +2693,10 @@ class Api extends CI_Controller {
 	
 	/* PENGATURAN */
 	public function savesetting($hal=null){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_POST) AND $this->admfunc->demo() == false){
 			foreach($_POST as $key=>$value){
@@ -2711,44 +2711,44 @@ class Api extends CI_Controller {
 		}
 	}
 	public function setting(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		$this->load->view("atmin/admin/pengaturanform");
 	}
 	public function settingkurir(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		$this->load->view("atmin/admin/pengaturankurir");
 	}
 	public function settingserver(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		$this->load->view("atmin/admin/pengaturanserver");
 	}
 	public function settingpayment(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		$this->load->view("atmin/admin/pengaturanpayment");
 	}
 	
 	/* PESANAN */
 	public function pesanan(){
-		if(!isset($_SESSION["isMasok"])){
-			redirect("atmin/manage/login");
-			exit;
-		}
+		// if(!isset($_SESSION["isMasok"])){
+		// 	redirect("atmin/manage/login");
+		// 	exit;
+		// }
 		
 		if(isset($_GET['load']) AND $_GET['load'] == "bayar"){
 			$res = $this->load->view("atmin/admin/pesananbayar","",true);
