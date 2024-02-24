@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2024 at 12:27 PM
+-- Generation Time: Feb 24, 2024 at 06:24 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -76,6 +76,13 @@ CREATE TABLE `blw_akun_penjualan` (
   `tanggal` date DEFAULT curdate(),
   `hapus` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `blw_akun_penjualan`
+--
+
+INSERT INTO `blw_akun_penjualan` (`id`, `akun`, `status`, `sample`, `katalog`, `tanggal`, `hapus`) VALUES
+(3, '1', '2', 'assets/penjualan/sample_1707198240.jpg', 'assets/penjualan/katalog_1707198240.pdf', '2024-02-06', 0);
 
 -- --------------------------------------------------------
 
@@ -8243,7 +8250,48 @@ INSERT INTO `blw_notifikasi` (`id`, `usrid`, `jenis`, `tujuan`, `judul`, `pesan`
 (56, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder', '\r\n				Halo <b>Jhon Doe</b><br/>Terimakasih, sudah membeli produk kami.<br/>Segera lakukan pembayaran agar pesananmu segera diproses<br/> <br/><b>Transfer pembayaran ke rekening berikut</b><br/><br/><b>Detail Pesanan</b><br/>No Invoice: <b>#2024020212629</b><br/>Total Pesanan: <b>Rp 10.000</b><br/>Ongkos Kirim: <b>Rp 0</b><br/>Kurir Pengiriman: <b> </b><br/> <br/>Detail Pengiriman <br/>Penerima: <b>Jhon Doe</b> <br/>No HP: <b>087777666555</b> <br/>Alamat: <b>alamat RT 01 RW 01</b><br/> <br/>Informasi cara pembayaran dan status pesananmu langsung di menu:<br/><a href=\'https://127.0.0.1/jadiorder/manage/pesanan\'>PESANANKU &raquo;</a>\r\n			', 'Pesanan #2024020212629', NULL, '2024-02-02 16:01:55', 0, '0000-00-00 00:00:00'),
 (57, 0, 2, '', '', '\r\n				Halo *Jhon Doe* \nTerimakasih, sudah membeli produk kami. \nSegera lakukan pembayaran agar pesananmu segera diproses \n \n*Transfer pembayaran ke rekening berikut:* \n\n \n*Detail Pesanan* \nNo Invoice: *#2024020212629* \nTotal Pesanan: *Rp 10.000* \nOngkos Kirim: *Rp 0* \nKurir Pengiriman: * * \n  \nDetail Pengiriman  \nPenerima: *Jhon Doe*  \nNo HP: *087777666555*  \nAlamat: *alamat RT 01 RW 01* \n  \nInformasi cara pembayaran dan status pesananmu langsung di menu: \n*PESANANKU*\r\n			', '', NULL, '2024-02-02 16:01:55', 0, '0000-00-00 00:00:00'),
 (58, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>022245</b>\r\n					', 'OTP Login', NULL, '2024-02-02 16:05:10', 0, '0000-00-00 00:00:00'),
-(59, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>392333</b>\r\n					', 'OTP Login', NULL, '2024-02-02 16:20:08', 0, '0000-00-00 00:00:00');
+(59, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>392333</b>\r\n					', 'OTP Login', NULL, '2024-02-02 16:20:08', 0, '0000-00-00 00:00:00'),
+(60, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>853594</b>\r\n					', 'OTP Login', NULL, '2024-02-04 17:34:58', 0, '0000-00-00 00:00:00'),
+(61, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>812561</b>\r\n					', 'OTP Login', NULL, '2024-02-07 08:29:43', 0, '0000-00-00 00:00:00'),
+(62, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>087636</b>\r\n					', 'OTP Login', NULL, '2024-02-07 08:43:35', 0, '0000-00-00 00:00:00'),
+(63, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>852522</b>\r\n					', 'OTP Login', NULL, '2024-02-07 08:44:02', 0, '0000-00-00 00:00:00'),
+(64, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>320155</b>\r\n					', 'OTP Login', NULL, '2024-02-07 08:45:24', 0, '0000-00-00 00:00:00'),
+(65, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>099038</b>\r\n					', 'OTP Login', NULL, '2024-02-07 08:46:11', 0, '0000-00-00 00:00:00'),
+(66, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>728427</b>\r\n					', 'OTP Login', NULL, '2024-02-07 08:49:31', 0, '0000-00-00 00:00:00'),
+(67, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>743834</b>\r\n					', 'OTP Login', NULL, '2024-02-07 08:50:04', 0, '0000-00-00 00:00:00'),
+(68, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>027039</b>\r\n					', 'OTP Login', NULL, '2024-02-07 08:50:25', 0, '0000-00-00 00:00:00'),
+(69, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>735746</b>\r\n					', 'OTP Login', NULL, '2024-02-07 08:50:30', 0, '0000-00-00 00:00:00'),
+(70, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>639981</b>\r\n					', 'OTP Login', NULL, '2024-02-07 08:50:43', 0, '0000-00-00 00:00:00'),
+(71, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>867538</b>\r\n					', 'OTP Login', NULL, '2024-02-07 08:50:47', 0, '0000-00-00 00:00:00'),
+(72, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>780529</b>\r\n					', 'OTP Login', NULL, '2024-02-07 08:51:17', 0, '0000-00-00 00:00:00'),
+(73, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>722527</b>\r\n					', 'OTP Login', NULL, '2024-02-07 08:52:03', 0, '0000-00-00 00:00:00'),
+(74, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>227515</b>\r\n					', 'OTP Login', NULL, '2024-02-07 08:56:41', 0, '0000-00-00 00:00:00'),
+(75, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>419083</b>\r\n					', 'OTP Login', NULL, '2024-02-07 08:57:44', 0, '0000-00-00 00:00:00'),
+(76, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>694405</b>\r\n					', 'OTP Login', NULL, '2024-02-07 08:58:28', 0, '0000-00-00 00:00:00'),
+(77, 0, 1, 'jhondoe78@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>054506</b>\r\n					', 'OTP Login', NULL, '2024-02-07 08:59:44', 0, '0000-00-00 00:00:00'),
+(78, 0, 1, 'sholikin2794@gmail.com', 'Jadiorder - OTP Login', '\r\n					<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>791451</b>\r\n				', 'OTP Login', NULL, '2024-02-07 09:00:12', 0, '0000-00-00 00:00:00'),
+(79, 0, 1, 'sholikin2794@gmail.com', 'Jadiorder - OTP Login', '\r\n					<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>061864</b>\r\n				', 'OTP Login', NULL, '2024-02-07 09:03:34', 0, '0000-00-00 00:00:00'),
+(80, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>341481</b>\r\n					', 'OTP Login', NULL, '2024-02-07 09:04:30', 0, '0000-00-00 00:00:00'),
+(81, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>291134</b>\r\n					', 'OTP Login', NULL, '2024-02-13 01:23:01', 0, '0000-00-00 00:00:00'),
+(82, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>369278</b>\r\n					', 'OTP Login', NULL, '2024-02-17 09:52:44', 0, '0000-00-00 00:00:00'),
+(83, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>947423</b>\r\n					', 'OTP Login', NULL, '2024-02-19 12:29:01', 0, '0000-00-00 00:00:00'),
+(84, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>557949</b>\r\n					', 'OTP Login', NULL, '2024-02-21 22:37:41', 0, '0000-00-00 00:00:00'),
+(85, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>443759</b>\r\n					', 'OTP Login', NULL, '2024-02-22 00:07:34', 0, '0000-00-00 00:00:00'),
+(86, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>772391</b>\r\n					', 'OTP Login', NULL, '2024-02-22 00:09:54', 0, '0000-00-00 00:00:00'),
+(87, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>587340</b>\r\n					', 'OTP Login', NULL, '2024-02-22 00:21:39', 0, '0000-00-00 00:00:00'),
+(88, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>940063</b>\r\n					', 'OTP Login', NULL, '2024-02-22 00:41:10', 0, '0000-00-00 00:00:00'),
+(89, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>873162</b>\r\n					', 'OTP Login', NULL, '2024-02-22 00:42:14', 0, '0000-00-00 00:00:00'),
+(90, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>239924</b>\r\n					', 'OTP Login', NULL, '2024-02-24 00:24:45', 0, '0000-00-00 00:00:00'),
+(91, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>406991</b>\r\n					', 'OTP Login', NULL, '2024-02-24 00:39:45', 0, '0000-00-00 00:00:00'),
+(92, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>573677</b>\r\n					', 'OTP Login', NULL, '2024-02-24 00:42:50', 0, '0000-00-00 00:00:00'),
+(93, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>918311</b>\r\n					', 'OTP Login', NULL, '2024-02-24 11:38:36', 0, '0000-00-00 00:00:00'),
+(94, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>522794</b>\r\n					', 'OTP Login', NULL, '2024-02-24 11:42:23', 0, '0000-00-00 00:00:00'),
+(95, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>499284</b>\r\n					', 'OTP Login', NULL, '2024-02-24 11:48:14', 0, '0000-00-00 00:00:00'),
+(96, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>841247</b>\r\n					', 'OTP Login', NULL, '2024-02-24 11:49:37', 0, '0000-00-00 00:00:00'),
+(97, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>315346</b>\r\n					', 'OTP Login', NULL, '2024-02-24 11:53:35', 0, '0000-00-00 00:00:00'),
+(98, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>047915</b>\r\n					', 'OTP Login', NULL, '2024-02-24 11:54:25', 0, '0000-00-00 00:00:00'),
+(99, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>365904</b>\r\n					', 'OTP Login', NULL, '2024-02-24 12:03:18', 0, '0000-00-00 00:00:00'),
+(100, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>358484</b>\r\n					', 'OTP Login', NULL, '2024-02-24 12:14:47', 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -8283,9 +8331,27 @@ CREATE TABLE `blw_otplogin` (
 --
 
 INSERT INTO `blw_otplogin` (`id`, `tgl`, `usrid`, `kode`, `kadaluarsa`, `status`, `masuk`) VALUES
-(22, '2024-02-02 02:42:50', 1, '658194', '2024-02-02 02:52:50', 1, '2024-02-02 02:43:15'),
-(23, '2024-02-02 16:05:10', 1, '022245', '2024-02-02 16:15:10', 1, '2024-02-02 16:05:25'),
-(24, '2024-02-02 16:20:08', 1, '392333', '2024-02-02 16:30:08', 1, '2024-02-02 16:20:29');
+(43, '2024-02-07 09:04:30', 1, '341481', '2024-02-07 09:14:30', 1, '2024-02-07 09:04:39'),
+(44, '2024-02-13 01:23:01', 1, '291134', '2024-02-13 01:33:01', 1, '2024-02-13 01:23:15'),
+(45, '2024-02-17 09:52:44', 1, '369278', '2024-02-17 10:02:44', 1, '2024-02-17 09:52:52'),
+(46, '2024-02-19 12:29:01', 1, '947423', '2024-02-19 12:39:01', 1, '2024-02-19 12:29:08'),
+(47, '2024-02-21 22:37:41', 1, '557949', '2024-02-21 22:47:41', 1, '2024-02-21 22:37:48'),
+(48, '2024-02-22 00:07:34', 1, '443759', '2024-02-22 00:17:34', 0, '0000-00-00 00:00:00'),
+(49, '2024-02-22 00:09:54', 1, '772391', '2024-02-22 00:19:54', 1, '2024-02-22 00:10:00'),
+(50, '2024-02-22 00:21:39', 1, '587340', '2024-02-22 00:31:39', 1, '2024-02-22 00:21:53'),
+(51, '2024-02-22 00:41:10', 1, '940063', '2024-02-22 00:51:10', 1, '2024-02-22 00:41:19'),
+(52, '2024-02-22 00:42:14', 1, '873162', '2024-02-22 00:52:14', 1, '2024-02-22 00:42:22'),
+(53, '2024-02-24 00:24:45', 1, '239924', '2024-02-24 00:34:45', 1, '2024-02-24 00:24:51'),
+(54, '2024-02-24 00:39:45', 1, '406991', '2024-02-24 00:49:45', 0, '0000-00-00 00:00:00'),
+(55, '2024-02-24 00:42:50', 1, '573677', '2024-02-24 00:52:50', 1, '2024-02-24 00:42:58'),
+(56, '2024-02-24 11:38:36', 1, '918311', '2024-02-24 11:48:36', 0, '0000-00-00 00:00:00'),
+(57, '2024-02-24 11:42:23', 1, '522794', '2024-02-24 11:52:23', 1, '2024-02-24 11:42:30'),
+(58, '2024-02-24 11:48:14', 1, '499284', '2024-02-24 11:58:14', 1, '2024-02-24 11:48:21'),
+(59, '2024-02-24 11:49:37', 1, '841247', '2024-02-24 11:59:37', 0, '0000-00-00 00:00:00'),
+(60, '2024-02-24 11:53:35', 1, '315346', '2024-02-24 12:03:35', 0, '0000-00-00 00:00:00'),
+(61, '2024-02-24 11:54:25', 1, '047915', '2024-02-24 12:04:25', 1, '2024-02-24 11:54:33'),
+(62, '2024-02-24 12:03:18', 1, '365904', '2024-02-24 12:13:18', 1, '2024-02-24 12:03:26'),
+(63, '2024-02-24 12:14:47', 1, '358484', '2024-02-24 12:24:47', 1, '2024-02-24 12:14:55');
 
 -- --------------------------------------------------------
 
@@ -8463,7 +8529,9 @@ INSERT INTO `blw_pembayaran_pre` (`id`, `usrid`, `usrid_temp`, `tipeco`, `tgl`, 
 (120, 1, 0, 0, '2024-02-02 15:52:55', 0, 0, 0, 10000, 0, 0, 0, 0, 0, 0, 0, 2, 'Bagas Pramono', '085855011542', 'JNT', 'JT000000', 1, 1250, 0, 0, 0, 119, 2932, 0, '9'),
 (121, 1, 0, 0, '2024-02-02 15:54:58', 0, 0, 0, 10000, 0, 0, 0, 0, 0, 0, 0, 2, 'Bagas Pramono', '085855011542', 'JNT', 'JT0100000', 1, 1250, 0, 0, 0, 119, 2932, 0, '9'),
 (122, 1, 0, 0, '2024-02-02 15:55:29', 0, 0, 0, 10000, 0, 0, 0, 0, 0, 0, 0, 2, 'Bagas Pramono', '085855011542', 'JNT', 'JT0100000', 1, 1250, 0, 0, 0, 119, 2932, 0, '9'),
-(123, 1, 0, 0, '2024-02-02 15:57:35', 0, 0, 12, 10000, 0, 10000, 0, 0, 0, 1, 0, 1, 'Bagas Pramono', '085855011542', 'JNT', 'JT0000000', 1, 1250, 0, 0, 0, 119, 2932, 0, '9');
+(123, 1, 0, 0, '2024-02-02 15:57:35', 0, 0, 12, 10000, 0, 10000, 0, 0, 0, 1, 0, 1, 'Bagas Pramono', '085855011542', 'JNT', 'JT0000000', 1, 1250, 0, 0, 0, 119, 2932, 0, '9'),
+(124, 1, 0, 0, '2024-02-04 17:35:59', 0, 0, 0, 2000, 0, 0, 0, 0, 0, 0, 0, 2, 'Bagas Pramono', '085855011542', 'JNT', 'JT000000', 1, 250, 0, 0, 0, 119, 2932, 0, '10'),
+(125, 1, 0, 0, '2024-02-04 17:39:53', 0, 0, 0, 2000, 0, 0, 0, 0, 0, 0, 0, 0, 'Bagas Pramono', '085855011542', 'JNT', 'JT0000000', 1, 250, 0, 0, 0, 119, 2932, 0, '10');
 
 -- --------------------------------------------------------
 
@@ -8568,6 +8636,7 @@ CREATE TABLE `blw_preorder` (
 
 CREATE TABLE `blw_produk` (
   `id` int(11) NOT NULL,
+  `user` text NOT NULL,
   `tglbuat` datetime NOT NULL,
   `tglupdate` datetime NOT NULL,
   `digital` int(11) NOT NULL COMMENT '0=fisik,1=digital',
@@ -8603,8 +8672,9 @@ CREATE TABLE `blw_produk` (
 -- Dumping data for table `blw_produk`
 --
 
-INSERT INTO `blw_produk` (`id`, `tglbuat`, `tglupdate`, `digital`, `akses`, `demo`, `demoadmin`, `nama`, `kode`, `url`, `deskripsi`, `idcat`, `brandid`, `berat`, `harga`, `hargacoret`, `hargareseller`, `hargaagen`, `hargaagensp`, `hargadistri`, `koin`, `afiliasi`, `minorder`, `stok`, `gudang`, `variasi`, `subvariasi`, `status`, `pohari`, `preorder`) VALUES
-(1, '2024-01-20 08:44:20', '2024-02-02 16:04:26', 0, '', '', '', 'Gantungan Kunci', '20084203', 'Gantungan-Kunci-084420', '<p>Gantungan Kunci</p><p>- Bagus</p><p>- Kecil</p><p>- Modis</p><p>- Keren</p><p><br></p><p>#ready stok kak langsung order</p>', 16, 1, 250, 2000, 10000, 1500, 1400, 1300, 1200, 10, 500, 1, 59, 0, '', '', 1, 0, 0);
+INSERT INTO `blw_produk` (`id`, `user`, `tglbuat`, `tglupdate`, `digital`, `akses`, `demo`, `demoadmin`, `nama`, `kode`, `url`, `deskripsi`, `idcat`, `brandid`, `berat`, `harga`, `hargacoret`, `hargareseller`, `hargaagen`, `hargaagensp`, `hargadistri`, `koin`, `afiliasi`, `minorder`, `stok`, `gudang`, `variasi`, `subvariasi`, `status`, `pohari`, `preorder`) VALUES
+(1, '1', '2024-01-20 08:44:20', '2024-02-24 12:11:35', 0, '', '', '', 'Gantungan Kunci', '20084203', 'Gantungan-Kunci-084420', '<p>Gantungan Kunci</p><p>- Bagus</p><p>- Kecil</p><p>- Modis</p><p>- Keren</p><p><br></p><p>#ready stok kak langsung order</p>', 16, 1, 250, 2000, 10000, 1500, 1400, 1300, 1200, 10, 500, 1, 10, 0, '', '', 1, 0, 0),
+(4, '', '2024-02-24 12:14:02', '2024-02-24 12:14:02', 0, '', '', '', 'Gantungan Kunci 78', '24121345', 'Gantungan-Kunci-78-121402', '<p>Gantungan Kunci</p><p>- Bagus</p><p>- Kecil</p><p>- Modis</p><p>- Keren</p><p><br></p><p>#ready stok kak langsung order</p>', 16, 1, 250, 2000, 10000, 1500, 1400, 1300, 1200, 10, 500, 1, 10, 0, '', '', 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -8625,7 +8695,8 @@ CREATE TABLE `blw_produkgrosir` (
 --
 
 INSERT INTO `blw_produkgrosir` (`id`, `tgl`, `idproduk`, `minimal`, `harga`) VALUES
-(1, '2024-02-02 16:04:26', 1, 10, 11000);
+(1, '2024-02-24 12:11:35', 1, 10, 11000),
+(2, '2024-02-24 12:14:02', 4, 10, 11000);
 
 -- --------------------------------------------------------
 
@@ -9361,7 +9432,8 @@ CREATE TABLE `blw_transaksiproduk` (
 
 INSERT INTO `blw_transaksiproduk` (`id`, `usrid`, `usrid_temp`, `variasi`, `idproduk`, `flashsale`, `digital`, `gudang`, `tgl`, `jumlah`, `harga`, `koin`, `diskon`, `keterangan`, `idtransaksi`, `idpo`) VALUES
 (8, 1, 0, 0, 1, 0, 0, 0, '2024-02-02 15:40:43', 5, 2000, 10, 0, '', 5, 0),
-(9, 1, 0, 0, 1, 0, 0, 0, '2024-02-02 15:52:45', 5, 2000, 10, 0, '', 6, 0);
+(9, 1, 0, 0, 1, 0, 0, 0, '2024-02-02 15:52:45', 5, 2000, 10, 0, '', 6, 0),
+(10, 1, 0, 0, 1, 0, 0, 0, '2024-02-04 17:35:48', 1, 2000, 10, 0, '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -9440,7 +9512,9 @@ CREATE TABLE `blw_upload` (
 --
 
 INSERT INTO `blw_upload` (`id`, `idproduk`, `jenis`, `nama`, `tgl`) VALUES
-(3, 1, 1, '720240202160421.jpg', '2024-02-02 16:04:21');
+(20, 1, 1, '120240224120551.jpg', '2024-02-24 12:05:51'),
+(25, 4, 1, '120240224120551.jpg', '2024-02-24 12:14:02'),
+(28, 0, 1, '120240224122124.jpg', '2024-02-24 12:21:24');
 
 -- --------------------------------------------------------
 
@@ -9467,7 +9541,7 @@ CREATE TABLE `blw_userdata` (
 --
 
 INSERT INTO `blw_userdata` (`id`, `status`, `username`, `nohp`, `password`, `nama`, `tgl`, `tglbuat`, `tglupdate`, `level`, `upline`) VALUES
-(1, 1, 'jhondoe78@gmail.com', '', '', 'Jhon Doe', '2024-02-02 18:26:30', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0);
+(1, 1, 'user@gmail.com', '', '', 'Jhon Doe', '2024-02-24 12:21:54', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -9484,6 +9558,13 @@ CREATE TABLE `blw_usertemp` (
   `usrid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `blw_usertemp`
+--
+
+INSERT INTO `blw_usertemp` (`id`, `tgl`, `nama`, `nohp`, `upline`, `usrid`) VALUES
+(1, '2024-02-13 01:40:24', '', '', 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -9497,6 +9578,13 @@ CREATE TABLE `blw_variasisize` (
   `nama` text COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Dumping data for table `blw_variasisize`
+--
+
+INSERT INTO `blw_variasisize` (`id`, `tgl`, `usrid`, `nama`) VALUES
+(1, '2024-02-17 11:12:44', 0, 'Jhon Doe');
+
 -- --------------------------------------------------------
 
 --
@@ -9509,6 +9597,13 @@ CREATE TABLE `blw_variasiwarna` (
   `usrid` int(11) NOT NULL,
   `nama` text COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `blw_variasiwarna`
+--
+
+INSERT INTO `blw_variasiwarna` (`id`, `tgl`, `usrid`, `nama`) VALUES
+(1, '2024-02-13 01:52:12', 0, 'hijau');
 
 -- --------------------------------------------------------
 
@@ -10035,7 +10130,7 @@ ALTER TABLE `blw_afiliasi`
 -- AUTO_INCREMENT for table `blw_akun_penjualan`
 --
 ALTER TABLE `blw_akun_penjualan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `blw_alamat`
@@ -10179,19 +10274,19 @@ ALTER TABLE `blw_mutasi`
 -- AUTO_INCREMENT for table `blw_notifikasi`
 --
 ALTER TABLE `blw_notifikasi`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `blw_otpdaftar`
 --
 ALTER TABLE `blw_otpdaftar`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `blw_otplogin`
 --
 ALTER TABLE `blw_otplogin`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `blw_page`
@@ -10215,7 +10310,7 @@ ALTER TABLE `blw_pembayaran`
 -- AUTO_INCREMENT for table `blw_pembayaran_pre`
 --
 ALTER TABLE `blw_pembayaran_pre`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
 -- AUTO_INCREMENT for table `blw_pesan`
@@ -10245,19 +10340,19 @@ ALTER TABLE `blw_preorder`
 -- AUTO_INCREMENT for table `blw_produk`
 --
 ALTER TABLE `blw_produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `blw_produkgrosir`
 --
 ALTER TABLE `blw_produkgrosir`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `blw_produkvariasi`
 --
 ALTER TABLE `blw_produkvariasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `blw_profil`
@@ -10365,7 +10460,7 @@ ALTER TABLE `blw_transaksi`
 -- AUTO_INCREMENT for table `blw_transaksiproduk`
 --
 ALTER TABLE `blw_transaksiproduk`
-  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `blw_transaksi_ppob`
@@ -10383,7 +10478,7 @@ ALTER TABLE `blw_tripay`
 -- AUTO_INCREMENT for table `blw_upload`
 --
 ALTER TABLE `blw_upload`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `blw_userdata`
@@ -10395,19 +10490,19 @@ ALTER TABLE `blw_userdata`
 -- AUTO_INCREMENT for table `blw_usertemp`
 --
 ALTER TABLE `blw_usertemp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `blw_variasisize`
 --
 ALTER TABLE `blw_variasisize`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `blw_variasiwarna`
 --
 ALTER TABLE `blw_variasiwarna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `blw_voucher`

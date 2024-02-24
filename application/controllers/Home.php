@@ -549,7 +549,9 @@ class Home extends CI_Controller {
 
 	// SIGNIN SIGNUP
 	function signin_otp($type="none"){
+
 		if($type == "challenge"){
+
 			$this->load->view("head_blank",array("titel"=>"OTP Login"));
 			$this->load->view("signin_otp");
 			$this->load->view("foot_blank");
@@ -657,7 +659,7 @@ class Home extends CI_Controller {
 			}
 
 		}elseif(isset($_SESSION["otp_id"]) AND isset($_POST["otp"]) AND $type == "confirm"){
-			
+
 			$this->db->where("id",$_SESSION["otp_id"]);
 			$db = $this->db->get("otplogin");
 
@@ -685,6 +687,10 @@ class Home extends CI_Controller {
 				$this->db->where("id",$_SESSION["otp_id"]);
 				$this->db->update("otplogin",["status"=>1,"masuk"=>date("Y-m-d H:i:s")]);
 				$this->session->unset_userdata("otp_id");
+
+				//buat sesi
+				$this->session->set_userdata("isMasok",true);
+				$this->session->set_userdata("admusrid",$usr->id);
 				
 				echo json_encode(array("success"=>true,"token"=>$this->security->get_csrf_hash()));
 			}else{

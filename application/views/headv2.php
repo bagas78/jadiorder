@@ -79,6 +79,7 @@ foreach($keyw->result() as $key){ $keywords .= ",".$key->nama; }
 
 	<link rel="stylesheet" href="<?= base_url('assets/vendor/summernote/summernote-bs4.css'); ?>">
 	<link rel="stylesheet" href="<?= base_url('assets/atmin/css/bootstrap-datetimepicker-build.css'); ?>">
+	<link rel="stylesheet" href="<?=base_url()?>assets/atmin/css/minmin.css?v=<?=time()?>">
 
 	<!--===============================================================================================-->
 	<script type="text/javascript" src="<?= base_url('assets/js/jquery-3.5.1.min.js') ?>"></script>

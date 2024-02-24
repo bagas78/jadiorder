@@ -18,7 +18,6 @@
 		if($id == 0 AND (!isset($_GET["copy"]))){
 	?>
 	<h4 class="page-title">Tambah Produk Baru</h4>
-	<br/><br/>
 
 	<?php 
 		}else{
@@ -31,6 +30,8 @@
 			}
 		}
 	?>
+
+	<br/><br/>
 
 	<?php
 		$this->session->unset_userdata("fotoProduk");
@@ -71,7 +72,7 @@
 		$kabs = $this->admfunc->getKab($set->kota,"semua");
 	?>
 
-	<div class="card">
+	<div class="card" style="width: 100%;">
 		<div class="card-header">
 			<div class="card-title">Foto Produk</div>
 		</div>
@@ -466,7 +467,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="card saveproduk-imp">
+		<div class="card saveproduk-imp" style="position: relative;">
 			<div class="card-body text-right m-tb-12">
 				<button type="submit" class="btn btn-primary"><i class="la la-check-circle"></i> Simpan</button>
 				<button type="reset" class="btn btn-warning"><i class="la la-refresh"></i> Reset</button>
