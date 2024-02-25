@@ -47,7 +47,7 @@
 				$set = $this->admfunc->globalset("semua");
 				$kab = ($gudangs->id > 0) ? $this->admfunc->getKab($gudangs->idkab,"semua") : "";
 				$kabs = $this->admfunc->getKab($set->kota,"semua");
-				$draf = ($r->status == 0) ? "<div class='m-b-8'><span class='badge badge-danger'><i class='fas fa-keyboard'></i> DRAFT</span></div>" : "";
+				$draf = ($r->status == 0) ? "<div class='m-b-8'><span class='badge badge-danger'><i class='fas fa-times'></i> Belum Di Verifikasi</span></div>" : "";
 				$gudang = ($gudangs->id > 0) ? "<div class='text-success m-b-8'><i class='fas fa-map-marker-alt'></i> ".$gudangs->nama." - ".$kab->tipe." ".$kab->nama."</div>" : "<div class='text-primary m-b-8'> <i class='fas fa-map-marker-alt'></i> PUSAT - ".$kabs->tipe." ".$kabs->nama."</div>";
 				$po = ($r->preorder == 0) ? "" : "<span class='badge badge-warning m-r-8 m-b-8'><i class='fas fa-history'></i> &nbsp;PRE ORDER</span>";
 				$po .= ($r->digital == 1) ? "<span class='badge badge-primary'><i class='fas fa-cloud'></i> &nbsp;Produk Digital</span>" : "";

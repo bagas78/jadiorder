@@ -383,7 +383,11 @@
 						</div>
 					</div>
 				</div>
-				<div class="row m-lr-0 m-b-24">
+
+				<!-- hidden status -->
+				<input type="hidden" name="status" value="0">
+
+				<!-- <div class="row m-lr-0 m-b-24">
 					<div class="col-md-4">
 						<div class="m-b-4"><b>Status Publikasi</b> &nbsp;<span class="badge badge-form">wajib</span></div>
 						<div class="fs-12">publish produk atau simpan sebagai draft.</div>
@@ -394,7 +398,7 @@
 							<option value="0" <?php echo ($id != 0 AND $data->status == 0) ? "selected" : ""; ?>>Draft</option>
 						</select>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<div class="card">

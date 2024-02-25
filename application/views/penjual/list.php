@@ -1,9 +1,9 @@
 <?php
-			$page = (isset($_GET["page"]) AND $_GET["page"] != "") ? $_GET["page"] : 1;
+			$page = (isset($_GET["page"]) AND $_GET["page"] != "") ? $_GET["page"] : 1; 
 			$perpage = (isset($_GET["perpage"]) AND $_GET["perpage"] != "") ? $_GET["perpage"] : 10;
 			$cari = (isset($_POST["cari"]) AND $_POST["cari"] != "") ? $_POST["cari"] : "";
 			
-			$where = "user = '' AND (nama LIKE '%$cari%' OR harga LIKE '%$cari%' OR berat LIKE '%$cari%' OR deskripsi LIKE '%$cari%')";
+			$where = "user != '' AND ( nama LIKE '%$cari%' OR harga LIKE '%$cari%' OR berat LIKE '%$cari%' OR deskripsi LIKE '%$cari%' )";
 			if(isset($_POST["status"])){
 				if($_POST["status"] == 1){
 					$where = "stok > 0 AND (".$where.")";
@@ -13,7 +13,7 @@
 					$where = "stok > 0 AND stok <= 5 AND (".$where.")";
 				}
 			}
-			$this->db->where($where); 
+			$this->db->where($where);
 			$row = $this->db->get("produk");
 			
 			$this->db->where($where);
@@ -25,6 +25,7 @@
 				<table class='table'>
 					<tr>
 						<th>Foto</th>
+						<th>Akun</th>
 						<th>Nama Produk</th>
 						<th>Detail Harga</th>
 						<th style='width:140px'>Stok Produk</th>
@@ -46,12 +47,14 @@
 				$set = $this->admfunc->globalset("semua");
 				$kab = ($gudangs->id > 0) ? $this->admfunc->getKab($gudangs->idkab,"semua") : "";
 				$kabs = $this->admfunc->getKab($set->kota,"semua");
-				$draf = ($r->status == 0) ? "<div class='m-b-8'><span class='badge badge-danger'><i class='fas fa-keyboard'></i> DRAFT</span></div>" : "";
+				$draf = ($r->status == 0) ? "<div class='m-b-8'><span class='badge badge-danger'><i class='fas fa-times'></i> Belum Di Verifikasi</span></div>" : "";
 				$gudang = ($gudangs->id > 0) ? "<div class='text-success m-b-8'><i class='fas fa-map-marker-alt'></i> ".$gudangs->nama." - ".$kab->tipe." ".$kab->nama."</div>" : "<div class='text-primary m-b-8'> <i class='fas fa-map-marker-alt'></i> PUSAT - ".$kabs->tipe." ".$kabs->nama."</div>";
 				$po = ($r->preorder == 0) ? "" : "<span class='badge badge-warning m-r-8 m-b-8'><i class='fas fa-history'></i> &nbsp;PRE ORDER</span>";
 				$po .= ($r->digital == 1) ? "<span class='badge badge-primary'><i class='fas fa-cloud'></i> &nbsp;Produk Digital</span>" : "";
 				$thumbnail = (filter_var($url, FILTER_VALIDATE_URL)) ? $url : $default;
+
 				$thumbnail = "<div style='background-image:url(\"".$thumbnail."\")' class='thumbnail-post m-tb-8'></div>";
+
 				$harga = "Normal: IDR ".$this->admfunc->formUang($r->harga)."<br/>";
 				$harga .= "Reseller: IDR ".$this->admfunc->formUang($r->hargareseller)."<br/>";
 				$harga .= "Agen: IDR ".$this->admfunc->formUang($r->hargaagen)."<br/>";
@@ -61,16 +64,23 @@
 				$varlist = $this->admfunc->getVariasiJumlah($r->id);
 				$stl = ($r->stok > 2) ? " class='text-primary'" : " class='text-danger'";
 				$stok = ($varlist > 0) ? "<b".$stl.">".$r->stok."</b><br/><small></i>dari <b>$varlist</b> varian</i></small>" : "<b".$stl.">".$r->stok."</b>";
-				$button = "
-					<!--<a href='".site_url("atmin/orderform/index/".$r->id)."' title='copy' class='btn btn-warning btn-sm m-b-4'><i class='fas fa-list-alt'></i> Form Order</a>-->
-					<a href='javascript:void(0)' onclick='sundul(".$r->id.")' title='hapus' class='btn btn-primary btn-sm m-b-4'><i class='fas fa-sort-amount-up-alt'></i> Sundul</a>
-					<a href='".site_url('atmin/manage/produkform/?copy='.$r->id)."' title='copy' class='btn btn-success btn-sm m-b-4'><i class='fas fa-copy'></i> Duplicate</a>
-					<a href='".site_url('atmin/manage/produkform/'.$r->id)."' title='edit' class='btn btn-primary btn-sm m-b-4'><i class='fas fa-pencil-alt'></i> Edit</a>
-					<a href='javascript:void(0)' onclick='hapus(".$r->id.")' title='hapus' class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i> Hapus</a>";
-									
+				
+				if ($r->status == 1) {
+					
+					$button = "<button disabled title='hapus' class='btn btn-secondary btn-sm m-b-4'><i class='fa fa-check'></i> Setujui</button>";
+				}else{
+
+					$button = "<a href='javascript:void(0)' onclick='verifikasi(".$r->id.")' title='hapus' class='btn btn-success btn-sm m-b-4'><i class='fa fa-check'></i> Setujui</a>";
+				}
+
+				//get nama
+				$usr = $r->user;
+				$get = $this->db->query("SELECT * FROM blw_userdata WHERE id = '$usr'")->row_array();
+
 				echo "
 					<tr>
 						<td>$thumbnail</td>
+						<td>".$get['nama']."</td>
 						<td><div class='m-b-8'>".ucwords($r->nama)."</div>".$draf.$gudang.$po."</td>
 						<td>".$harga."</td>
 						<td class='text-center'>".$stok."</td>

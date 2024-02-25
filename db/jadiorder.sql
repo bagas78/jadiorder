@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2024 at 04:32 AM
+-- Generation Time: Feb 25, 2024 at 07:39 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -8296,7 +8296,9 @@ INSERT INTO `blw_notifikasi` (`id`, `usrid`, `jenis`, `tujuan`, `judul`, `pesan`
 (101, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>425463</b>\r\n					', 'OTP Login', NULL, '2024-02-24 21:14:07', 0, '0000-00-00 00:00:00'),
 (102, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>265588</b>\r\n					', 'OTP Login', NULL, '2024-02-24 21:17:44', 0, '0000-00-00 00:00:00'),
 (103, 0, 1, 'user@gmail.com', 'Jadiorder', '\n				Halo <b>Jhon Doe</b><br/>Pesanan Anda telah dibatalkan<br/>Status: <br/><b>DIBATALKAN OLEH ADMIN</b><br/><br/><b>Detail Pesanan</b><br/>No Invoice: <b>#2024020212629</b><br/>Total Pesanan: <b>Rp 10.000</b><br/>Ongkos Kirim: <b>Rp 0</b><br/>Kurir Pengiriman: <b>0 0</b><br/> <br/>Detail Pengiriman <br/>Penerima: <b>Jhon Doe</b> <br/>No HP: <b>087777666555</b> <br/>Alamat: <b>alamat RT 01 RW 01</b><br/> <br/>Informasi cara pembayaran dan status pesananmu langsung di menu:<br/><a href=\'https://127.0.0.1/jadiorder/manage/pesanan\'>PESANANKU &raquo;</a>\n			', 'Pesanan Dibatalkan', NULL, '2024-02-24 21:46:16', 0, '0000-00-00 00:00:00'),
-(104, 0, 2, '', '', '\n				Halo *Jhon Doe* \nPesanan Anda telah dibatalkan \nStatus: \n*DIBATALKAN OLEH ADMIN* \n \n*Detail Pesanan* \nNo Invoice: *#2024020212629* \nTotal Pesanan: *Rp 10.000* \nOngkos Kirim: *Rp 0* \nKurir Pengiriman: *0 0* \n  \nDetail Pengiriman  \nPenerima: *Jhon Doe*  \nNo HP: *087777666555*  \nAlamat: *alamat RT 01 RW 01* \n  \nInformasi cara pembayaran dan status pesananmu langsung di menu: \n*PESANANKU*\n			', '', NULL, '2024-02-24 21:46:16', 0, '0000-00-00 00:00:00');
+(104, 0, 2, '', '', '\n				Halo *Jhon Doe* \nPesanan Anda telah dibatalkan \nStatus: \n*DIBATALKAN OLEH ADMIN* \n \n*Detail Pesanan* \nNo Invoice: *#2024020212629* \nTotal Pesanan: *Rp 10.000* \nOngkos Kirim: *Rp 0* \nKurir Pengiriman: *0 0* \n  \nDetail Pengiriman  \nPenerima: *Jhon Doe*  \nNo HP: *087777666555*  \nAlamat: *alamat RT 01 RW 01* \n  \nInformasi cara pembayaran dan status pesananmu langsung di menu: \n*PESANANKU*\n			', '', NULL, '2024-02-24 21:46:16', 0, '0000-00-00 00:00:00'),
+(105, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>426291</b>\r\n					', 'OTP Login', NULL, '2024-02-25 10:35:47', 0, '0000-00-00 00:00:00'),
+(106, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>377943</b>\r\n					', 'OTP Login', NULL, '2024-02-25 13:38:10', 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -8358,7 +8360,9 @@ INSERT INTO `blw_otplogin` (`id`, `tgl`, `usrid`, `kode`, `kadaluarsa`, `status`
 (62, '2024-02-24 12:03:18', 1, '365904', '2024-02-24 12:13:18', 1, '2024-02-24 12:03:26'),
 (63, '2024-02-24 12:14:47', 1, '358484', '2024-02-24 12:24:47', 1, '2024-02-24 12:14:55'),
 (64, '2024-02-24 21:14:07', 1, '425463', '2024-02-24 21:24:07', 1, '2024-02-24 21:14:15'),
-(65, '2024-02-24 21:17:44', 1, '265588', '2024-02-24 21:27:44', 1, '2024-02-24 21:17:49');
+(65, '2024-02-24 21:17:44', 1, '265588', '2024-02-24 21:27:44', 1, '2024-02-24 21:17:49'),
+(66, '2024-02-25 10:35:47', 1, '426291', '2024-02-25 10:45:47', 1, '2024-02-25 10:35:54'),
+(67, '2024-02-25 13:38:10', 1, '377943', '2024-02-25 13:48:10', 1, '2024-02-25 13:38:16');
 
 -- --------------------------------------------------------
 
@@ -8614,7 +8618,6 @@ CREATE TABLE `blw_preorder` (
 CREATE TABLE `blw_produk` (
   `id` int(11) NOT NULL,
   `user` text NOT NULL,
-  `verifikasi` text NOT NULL DEFAULT '0',
   `tglbuat` datetime NOT NULL,
   `tglupdate` datetime NOT NULL,
   `digital` int(11) NOT NULL COMMENT '0=fisik,1=digital',
@@ -8650,8 +8653,9 @@ CREATE TABLE `blw_produk` (
 -- Dumping data for table `blw_produk`
 --
 
-INSERT INTO `blw_produk` (`id`, `user`, `verifikasi`, `tglbuat`, `tglupdate`, `digital`, `akses`, `demo`, `demoadmin`, `nama`, `kode`, `url`, `deskripsi`, `idcat`, `brandid`, `berat`, `harga`, `hargacoret`, `hargareseller`, `hargaagen`, `hargaagensp`, `hargadistri`, `koin`, `afiliasi`, `minorder`, `stok`, `gudang`, `variasi`, `subvariasi`, `status`, `pohari`, `preorder`) VALUES
-(1, '1', '0', '2024-01-20 08:44:20', '2024-02-24 21:46:16', 0, '', '', '', 'Gantungan Kunci', '20084203', 'Gantungan-Kunci-084420', '<p>Gantungan Kunci</p><p>- Bagus</p><p>- Kecil</p><p>- Modis</p><p>- Keren</p><p><br></p><p>#ready stok kak langsung order</p>', 16, 1, 250, 2000, 10000, 1500, 1400, 1300, 1200, 10, 500, 1, 15, 0, '', '', 1, 0, 0);
+INSERT INTO `blw_produk` (`id`, `user`, `tglbuat`, `tglupdate`, `digital`, `akses`, `demo`, `demoadmin`, `nama`, `kode`, `url`, `deskripsi`, `idcat`, `brandid`, `berat`, `harga`, `hargacoret`, `hargareseller`, `hargaagen`, `hargaagensp`, `hargadistri`, `koin`, `afiliasi`, `minorder`, `stok`, `gudang`, `variasi`, `subvariasi`, `status`, `pohari`, `preorder`) VALUES
+(10, '1', '2024-02-25 10:44:14', '2024-02-25 10:44:14', 0, '', '', '', 'Gantungan Kunci ', '25104332', 'Gantungan-Kunci--104414', '<p>produk joss gandoss</p>', 4, 1, 250, 2000, 3000, 0, 0, 0, 0, 0, 0, 1, 100, 0, '', '', 1, 0, 0),
+(11, '', '2024-02-25 10:55:54', '2024-02-25 10:55:54', 0, '', '', '', 'KTP printer', '25105513', 'KTP-printer-105554', '<p><br></p>', 4, 1, 250, 3000, 5000, 0, 0, 0, 0, 0, 0, 1, 50, 0, '', '', 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -9475,7 +9479,8 @@ CREATE TABLE `blw_upload` (
 --
 
 INSERT INTO `blw_upload` (`id`, `idproduk`, `jenis`, `nama`, `tgl`) VALUES
-(20, 1, 1, '120240224120551.jpg', '2024-02-24 12:05:51');
+(36, 10, 1, '120240225104337.jpg', '2024-02-25 10:43:37'),
+(37, 11, 1, '720240225105521.jpg', '2024-02-25 10:55:21');
 
 -- --------------------------------------------------------
 
@@ -9502,7 +9507,7 @@ CREATE TABLE `blw_userdata` (
 --
 
 INSERT INTO `blw_userdata` (`id`, `status`, `username`, `nohp`, `password`, `nama`, `tgl`, `tglbuat`, `tglupdate`, `level`, `upline`) VALUES
-(1, 1, 'user@gmail.com', '', '', 'Jhon Doe', '2024-02-24 21:45:42', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0);
+(1, 1, 'user@gmail.com', '', '', 'Jhon Doe', '2024-02-25 13:38:36', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -10235,7 +10240,7 @@ ALTER TABLE `blw_mutasi`
 -- AUTO_INCREMENT for table `blw_notifikasi`
 --
 ALTER TABLE `blw_notifikasi`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT for table `blw_otpdaftar`
@@ -10247,7 +10252,7 @@ ALTER TABLE `blw_otpdaftar`
 -- AUTO_INCREMENT for table `blw_otplogin`
 --
 ALTER TABLE `blw_otplogin`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `blw_page`
@@ -10301,7 +10306,7 @@ ALTER TABLE `blw_preorder`
 -- AUTO_INCREMENT for table `blw_produk`
 --
 ALTER TABLE `blw_produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `blw_produkgrosir`
@@ -10439,7 +10444,7 @@ ALTER TABLE `blw_tripay`
 -- AUTO_INCREMENT for table `blw_upload`
 --
 ALTER TABLE `blw_upload`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `blw_userdata`

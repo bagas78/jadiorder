@@ -286,7 +286,7 @@ class Update_akun extends CI_Controller {
 	}
 
 
-	// UPDATE PENJUALAN //
+	// UPDATE PENJUALAN // 
 	public function penjualan(){ 
 
 		$akun = $this->session->userdata('usrid');
@@ -370,5 +370,32 @@ class Update_akun extends CI_Controller {
 		}
 
 		redirect(base_url('update_akun/verifikasi_penjualan'));
+	}
+
+
+	// VERIFIKASI PRODUK //
+	function verifikasi_produk(){
+
+		$this->load->view('atmin/admin/head',["menu"=>35]);
+		$this->load->view('penjual/produk');
+		$this->load->view('atmin/admin/foot');
+	}
+	function produk(){
+
+		//get produk
+		$res = $this->load->view('penjual/list',"",true);
+		echo json_encode(["result"=>$res,"token"=>$this->security->get_csrf_hash()]);
+	}
+	function setujui(){
+		
+		if(isset($_POST)){
+			$this->db->where("id",$_POST["id"]);
+			$this->db->set("status",1);
+			$this->db->update("produk");
+
+			echo json_encode(array("success"=>true,"msg"=>"berhasil","token"=> $this->security->get_csrf_hash()));
+		}else{
+			echo json_encode(array("success"=>false,"msg"=>"form not submitted!"));
+		}
 	}
 }

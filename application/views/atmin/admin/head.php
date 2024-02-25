@@ -290,14 +290,14 @@
 					</li>
 
 					<li class="nav-item <?php echo (isset($menu) AND $menu == 35) ? "active" : "" ?>">
-						<a href="#">
+						<a href="<?=site_url("update_akun/verifikasi_produk")?>">
 							<i class="fa fa-th-large text-success"></i>
 							<p>Verifikasi Produk</p>
 						</a>
 					</li>
 
 					<li class="nav-item <?php echo (isset($menu) AND $menu == 36) ? "active" : "" ?>">
-						<a href="#">
+						<a href="<?=site_url("update_akun/withdraw")?>">
 							<i class="fa fa-credit-card  text-info"></i>
 							<p>User Withdraw</p>
 						</a>
