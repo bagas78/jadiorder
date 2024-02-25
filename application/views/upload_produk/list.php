@@ -1,9 +1,10 @@
 <?php
-			$page = (isset($_GET["page"]) AND $_GET["page"] != "") ? $_GET["page"] : 1;
+			$page = (isset($_GET["page"]) AND $_GET["page"] != "") ? $_GET["page"] : 1; 
 			$perpage = (isset($_GET["perpage"]) AND $_GET["perpage"] != "") ? $_GET["perpage"] : 10;
 			$cari = (isset($_POST["cari"]) AND $_POST["cari"] != "") ? $_POST["cari"] : "";
+			$usrid = $this->session->userdata('usrid');
 			
-			$where = "nama LIKE '%$cari%' OR harga LIKE '%$cari%' OR berat LIKE '%$cari%' OR deskripsi LIKE '%$cari%'";
+			$where = "user = ".$usrid." AND ( nama LIKE '%$cari%' OR harga LIKE '%$cari%' OR berat LIKE '%$cari%' OR deskripsi LIKE '%$cari%' )";
 			if(isset($_POST["status"])){
 				if($_POST["status"] == 1){
 					$where = "stok > 0 AND (".$where.")";
@@ -52,9 +53,7 @@
 				$po .= ($r->digital == 1) ? "<span class='badge badge-primary'><i class='fas fa-cloud'></i> &nbsp;Produk Digital</span>" : "";
 				$thumbnail = (filter_var($url, FILTER_VALIDATE_URL)) ? $url : $default;
 
-				//$thumbnail = "<div style='background-image:url(\"".$thumbnail."\")' class='thumbnail-post m-tb-8'></div>";
-
-				$thumbnail = "<img width='100' src='".$thumbnail."' class='thumbnail-post m-tb-8'>";
+				$thumbnail = "<div style='background-image:url(\"".$thumbnail."\")' class='thumbnail-post m-tb-8'></div>";
 
 				$harga = "Normal: IDR ".$this->admfunc->formUang($r->harga)."<br/>";
 				$harga .= "Reseller: IDR ".$this->admfunc->formUang($r->hargareseller)."<br/>";

@@ -146,7 +146,7 @@
 						updateToken(data.token);
 						if(data.success == true){
 							swal.fire("Berhasil","data telah dihapus","success").then((val)=>{
-								window.location.href="<?=site_url("atmin/atmin/produk")?>";
+								window.location.href="<?=site_url("upload_produk")?>";
 							});
 						}else{
 							swal.fire("Gagal!","gagal menghapus data, cobalah beberapa saat lagi","error");

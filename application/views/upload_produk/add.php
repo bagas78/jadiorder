@@ -39,7 +39,7 @@
 		if($id != 0 || (isset($_GET["copy"]) AND intval($_GET["copy"]) > 0)){
 			if(isset($_GET["copy"])){
 				$id = intval($_GET["copy"]);
-				$url = site_url("upload_produk/add");
+				$url = site_url("atmin/api/tambahproduk");
 				$varjum = 0;
 				$this->session->unset_userdata("fotoCopy");
 			}else{
