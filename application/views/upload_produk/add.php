@@ -385,7 +385,11 @@
 				</div>
 
 				<!-- hidden status -->
-				<input type="hidden" name="status" value="0">
+				<input type="hidden" name="status" value="0" id="status">
+
+				<script type="text/javascript">
+					$('#status').val('<?= $data->status; ?>');
+				</script>
 
 				<!-- <div class="row m-lr-0 m-b-24">
 					<div class="col-md-4">

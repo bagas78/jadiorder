@@ -273,7 +273,7 @@
 								    }, 100);
 								}
 
-								notif_verifikasi();
+								//notif_verifikasi();
 							</script>
 
 						</a>

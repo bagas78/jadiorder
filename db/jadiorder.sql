@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2024 at 07:39 AM
+-- Generation Time: Feb 27, 2024 at 06:16 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -8654,7 +8654,7 @@ CREATE TABLE `blw_produk` (
 --
 
 INSERT INTO `blw_produk` (`id`, `user`, `tglbuat`, `tglupdate`, `digital`, `akses`, `demo`, `demoadmin`, `nama`, `kode`, `url`, `deskripsi`, `idcat`, `brandid`, `berat`, `harga`, `hargacoret`, `hargareseller`, `hargaagen`, `hargaagensp`, `hargadistri`, `koin`, `afiliasi`, `minorder`, `stok`, `gudang`, `variasi`, `subvariasi`, `status`, `pohari`, `preorder`) VALUES
-(10, '1', '2024-02-25 10:44:14', '2024-02-25 10:44:14', 0, '', '', '', 'Gantungan Kunci ', '25104332', 'Gantungan-Kunci--104414', '<p>produk joss gandoss</p>', 4, 1, 250, 2000, 3000, 0, 0, 0, 0, 0, 0, 1, 100, 0, '', '', 1, 0, 0),
+(10, '1', '2024-02-25 10:44:14', '2024-02-28 00:11:37', 0, '', '', '', 'Gantungan Kunci ', '25104332', 'Gantungan-Kunci--104414', '<p>produk joss gandoss</p>', 4, 1, 250, 2000, 3000, 0, 0, 0, 0, 0, 0, 1, 20, 0, '', '', 1, 0, 0),
 (11, '', '2024-02-25 10:55:54', '2024-02-25 10:55:54', 0, '', '', '', 'KTP printer', '25105513', 'KTP-printer-105554', '<p><br></p>', 4, 1, 250, 3000, 5000, 0, 0, 0, 0, 0, 0, 1, 50, 0, '', '', 1, 0, 0);
 
 -- --------------------------------------------------------
@@ -8703,6 +8703,13 @@ CREATE TABLE `blw_produkvariasi` (
   `hargadistri` int(11) NOT NULL,
   `tgl` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `blw_produkvariasi`
+--
+
+INSERT INTO `blw_produkvariasi` (`id`, `kode`, `idproduk`, `warna`, `size`, `stok`, `kuota`, `harga`, `hargareseller`, `hargaagen`, `hargaagensp`, `hargadistri`, `tgl`) VALUES
+(7, '', 10, 5, 2, 20, 20, 2000, 0, 0, 0, 0, '2024-02-28 00:07:57');
 
 -- --------------------------------------------------------
 
@@ -9507,7 +9514,7 @@ CREATE TABLE `blw_userdata` (
 --
 
 INSERT INTO `blw_userdata` (`id`, `status`, `username`, `nohp`, `password`, `nama`, `tgl`, `tglbuat`, `tglupdate`, `level`, `upline`) VALUES
-(1, 1, 'user@gmail.com', '', '', 'Jhon Doe', '2024-02-25 13:38:36', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0);
+(1, 1, 'user@gmail.com', '', '', 'Jhon Doe', '2024-02-28 00:13:02', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -9549,7 +9556,8 @@ CREATE TABLE `blw_variasisize` (
 --
 
 INSERT INTO `blw_variasisize` (`id`, `tgl`, `usrid`, `nama`) VALUES
-(1, '2024-02-17 11:12:44', 0, 'Jhon Doe');
+(1, '2024-02-17 11:12:44', 0, 'Jhon Doe'),
+(2, '2024-02-28 00:07:49', 0, 'Biru');
 
 -- --------------------------------------------------------
 
@@ -9569,7 +9577,11 @@ CREATE TABLE `blw_variasiwarna` (
 --
 
 INSERT INTO `blw_variasiwarna` (`id`, `tgl`, `usrid`, `nama`) VALUES
-(1, '2024-02-13 01:52:12', 0, 'hijau');
+(1, '2024-02-13 01:52:12', 0, 'hijau'),
+(2, '2024-02-26 10:40:19', 0, 'hitam'),
+(3, '2024-02-26 10:46:40', 0, 'hitam'),
+(4, '2024-02-28 00:06:12', 0, 'hitam'),
+(5, '2024-02-28 00:07:11', 0, 'HItam');
 
 -- --------------------------------------------------------
 
@@ -10306,19 +10318,19 @@ ALTER TABLE `blw_preorder`
 -- AUTO_INCREMENT for table `blw_produk`
 --
 ALTER TABLE `blw_produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `blw_produkgrosir`
 --
 ALTER TABLE `blw_produkgrosir`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `blw_produkvariasi`
 --
 ALTER TABLE `blw_produkvariasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `blw_profil`
@@ -10444,7 +10456,7 @@ ALTER TABLE `blw_tripay`
 -- AUTO_INCREMENT for table `blw_upload`
 --
 ALTER TABLE `blw_upload`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `blw_userdata`
@@ -10462,13 +10474,13 @@ ALTER TABLE `blw_usertemp`
 -- AUTO_INCREMENT for table `blw_variasisize`
 --
 ALTER TABLE `blw_variasisize`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `blw_variasiwarna`
 --
 ALTER TABLE `blw_variasiwarna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `blw_voucher`

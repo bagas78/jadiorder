@@ -133,7 +133,7 @@
             $("#agensp_"+id).val($("#agensp").val());
             $("#distri_"+id).val($("#distri").val());
             $("#reseller").val(0);
-            $("#agen").val(0);
+            $("#agen").val(0); 
             $("#agensp").val(0);
             $("#distri").val(0);
             $("#modalharga").modal("hide");

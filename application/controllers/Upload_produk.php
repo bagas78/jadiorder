@@ -28,20 +28,20 @@ class Upload_produk extends CI_Controller {
 		
 		if(isset($_POST["nama"])){
 			
-			$_POST["id"] = $this->admfunc->clean($_POST["id"]);
+			$_POST["id"] = $this->admfunc->clean(@$_POST["id"]);
 			
 			//data
 			$data = [
 				"tgl"	=> date("Y-m-d H:i:s"),
-				"nama"	=> $_POST["nama"],
-				"deskripsi"=> $_POST["deskripsi"],
+				"nama"	=> @$_POST["nama"],
+				"deskripsi"=> @$_POST["deskripsi"],
 			];
 
 			//submit
 			if($_POST["id"] > 0){
 
 				//update
-				$this->db->where("id",$_POST["id"]);
+				$this->db->where("id",@$_POST["id"]);
 				$this->db->update("produk",$data);
 				
 				redirect(base_url("upload_produk"));
@@ -57,7 +57,8 @@ class Upload_produk extends CI_Controller {
 		}else{
 			$this->load->view("headv2",array("titel"=>"Akun Saya"));
 			$this->load->view("upload_produk/add",["id"=>$id]);
-			$this->load->view("footv2");
+			//$this->load->view("footv2");
+			$this->load->view('atmin/admin/foot');
 		}
 	}
 }
