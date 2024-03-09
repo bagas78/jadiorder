@@ -283,13 +283,17 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<form id="simpanvarian" method="POST">
+			<form id="simpanvarian" method="POST" enctype="multipart/form-data">
 				<input type="hidden" name="produk" value="<?=$id?>" />
 				<div class="modal-body">
 					<div class="form-group">
 						<label>Nama Varian</label>
 						<input type="text" class="form-control" name="nama" required />
 					</div>
+                    <div class="form-group">
+                        <label>Foto Varian</label>
+                        <input type="file" class="form-control" name="foto" required />
+                    </div>
 				</div>
 				<div class="modal-footer">
 					<button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Simpan</button>

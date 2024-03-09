@@ -105,7 +105,7 @@
 			<div class="card-header">
 				<div class="card-title">
 					Nama & Kategori Produk
-				</div>
+				</div> 
 			</div>
 			<div class="card-body">
 				<div class="row m-lr-0 m-b-24">
@@ -288,7 +288,7 @@
 						<input type="number" class="form-control" name="minorder" value="<?php echo ($id != 0) ? $data->minorder : 1; ?>" required />
 					</div>
 				</div>
-				<div class="row m-lr-0 m-b-24">
+				<!-- <div class="row m-lr-0 m-b-24">
 					<div class="col-md-4">
 						<div class="m-b-4"><b>Harga Coret</b></div>
 						<div class="fs-12">Harga normal sebelum diskon. hanya masukkan angka saja. cth: 200000</div>
@@ -296,7 +296,7 @@
 					<div class="col-md-3 col-6">
 						<input type="number" class="form-control" name="hargacoret" value="<?php echo ($id != 0) ? $data->hargacoret : 0; ?>" required />
 					</div>
-				</div>
+				</div> -->
 				<div class="row m-lr-0 m-b-32">
 					<div class="col-md-4">
 						<div class="m-b-4"><b>Harga Normal</b> &nbsp;<span class="badge badge-form">wajib</span></div>
@@ -306,7 +306,7 @@
 						<input type="number" class="form-control" name="harga" value="<?php echo ($id != 0) ? $data->harga : 0; ?>" required />
 					</div>
 				</div>
-				<div class="row m-lr-0 m-b-32">
+				<!-- <div class="row m-lr-0 m-b-32">
 					<div class="col-md-4">
 						<div class="m-b-4"><b>Nilai Komisi Afiliasi</b> &nbsp;<span class="badge badge-form">wajib</span></div>
 						<div class="fs-12">Nilai komisi penjualan yg diberikan kepada afiliator. hanya masukkan angka saja. cth: 20000</div>
@@ -314,8 +314,8 @@
 					<div class="col-md-3 col-6">
 						<input type="number" class="form-control" name="afiliasi" value="<?php echo ($id != 0) ? $data->afiliasi : 0; ?>" required />
 					</div>
-				</div>
-				<div class="row m-lr-0 m-b-32">
+				</div> -->
+				<!-- <div class="row m-lr-0 m-b-32">
 					<div class="col-md-4">
 						<div class="m-b-4"><b>Koin Cashback</b> &nbsp;<span class="badge badge-form">wajib</span></div>
 						<div class="fs-12">Jumlah koin yang didapatkan user ketika membeli produk ini (berlaku kelipatan). hanya masukkan angka saja. cth: 20000</div>
@@ -323,8 +323,8 @@
 					<div class="col-md-3 col-6">
 						<input type="number" class="form-control" name="koin" value="<?php echo ($id != 0) ? $data->koin : 0; ?>" required />
 					</div>
-				</div>
-				<div class="m-b-24 m-lr-15">
+				</div> -->
+				<!-- <div class="m-b-24 m-lr-15">
 					<b>Harga Reseller Sesuai Level</b>
 				</div>
 				<div class="row m-lr-0 m-b-24 novariasi">
@@ -348,7 +348,7 @@
 						<div class="fs-12 m-b-8">harga reseller level 4</div>
 						<input type="number" class="form-control" name="hargadistri" value="<?php echo ($id != 0) ? $data->hargadistri : 0; ?>" required />
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<div class="card">

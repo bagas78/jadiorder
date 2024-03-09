@@ -549,14 +549,41 @@ class Api extends CI_Controller {
 	}
 	public function varianadd(){
 		if(!isset($_SESSION["isMasok"])){
-		redirect("atmin/manage/login");
+		redirect("atmin/manage/login"); 
 		exit;
 		}
 		
 		if(isset($_POST)){
+
+			//type file
+			$typefile = explode('/', $_FILES['foto']['type']);
+
+			//replace Karakter name foto
+			$filename = $_FILES['foto']['name'];
+
+			//replace name foto
+			$type = explode(".", $filename);
+	    	$no = count($type) - 1;
+	    	$new_name = md5(time()).'.'.$type[$no];
+	    	/////////////////////
+
+		 	//config uplod foto
+			$config = array(
+			  'upload_path' 	=> './cdn/uploads/',
+			  'allowed_types' 	=> "gif|jpg|png|jpeg",
+			  'overwrite' 		=> TRUE,
+			  'max_size' 		=> "2000",
+			  'file_name'		=> $new_name,
+			);
+
+	        //Load upload library
+	        $this->load->library('upload',$config);
+	        $this->upload->do_upload('foto');
+
 			$data = [
 				"nama"	=> $_POST["nama"],
-				"tgl"	=> date("Y-m-d H:i:s")
+				"tgl"	=> date("Y-m-d H:i:s"),
+				"foto" => $new_name,
 			];
 			$this->db->insert("variasiwarna",$data);
 			$insertid = $this->db->insert_id();
