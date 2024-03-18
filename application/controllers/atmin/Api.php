@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx; 
 
 class Api extends CI_Controller {
 
@@ -694,9 +694,22 @@ class Api extends CI_Controller {
 		}
 		
 		if(isset($_POST)){
+
+			$warna = $_POST["id"];
+
 			$this->db->where("idproduk",$_POST["produk"]);
-			$this->db->where("warna",$_POST["id"]);
-			$this->db->delete("produkvariasi");
+			$this->db->where("warna",$warna);
+
+			if ($this->db->delete("produkvariasi")) {
+				
+				//delete warna
+				$this->db->where("id", $warna);
+				$this->db->delete("variasiwarna");
+
+				//delete file
+				$path = $path = 'cdn/uploads/'.$_POST["foto"];
+				unlink($path);
+			}
 
 			echo json_encode(array("success"=>true,"msg"=>"berhasil","token"=> $this->security->get_csrf_hash()));
 		}else{

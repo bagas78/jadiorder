@@ -5,7 +5,7 @@
     $variasi = array();
     $subvariasi = array();
     foreach($db->result() as $res){
-        $variasi[] = $res->warna;
+        $variasi[] = $res->warna; 
         if($res->size > 0){
             $subvariasi[] = $res->size;
         }
@@ -16,7 +16,7 @@
 	$subvariasi = array_values($subvariasi);
 
     //if(count($variasi) > 0){
-?>
+?> 
 <div class="row m-lr-0 m-b-32">
     <div class="col-md-3">
         <div class="m-b-4"><b>Pilihan Varian</b></div>
@@ -30,7 +30,11 @@
             <div class="var-item">
                 <div class="var-wrap">
                     <div class="name"><?=$this->admfunc->getVariasiWarna($variasi[$i],"nama")?></div>
-                    <div class="button" onclick="hapusVarian(<?=$variasi[$i]?>)"><span class="fas fa-times"></span></div>
+
+                    <!-- foto -->
+                    <a target="_BLANK" href="<?=base_url('cdn/uploads/'.$this->admfunc->getVariasiWarna($variasi[$i],"foto"))?>"><div class="button"><small><i class="fa fa-eye"></i></small></div></a>
+
+                    <div class="button" onclick="hapusVarian(<?=$variasi[$i]?>, '<?=$this->admfunc->getVariasiWarna($variasi[$i],"foto")?>')"><span class="fas fa-times"></span></div>
                 </div>
             </div>
         <?php
@@ -143,23 +147,85 @@
         $("#simpanvarian").on("submit",function(e){
             e.preventDefault();
             $(".modal").modal("hide");
-            var datar = $(this).serialize();
-            datar = datar + "&" + $("#names").val() + "=" + $("#tokens").val();
             
             setTimeout(function(){
-                $.post("<?=site_url("atmin/api/varianadd")?>",datar,function(msg){
-                    var data = eval("("+msg+")");
-                    updateToken(data.token);
-                    if(data.success == true){
-                        loadVariasi();
-                    }else{
-                        swal.fire("Gagal menyimpan","gagal menyimpan data varian, silahkan refresh halaman ini lalu edit kembali datanya","error");
-                    }
-                });
+
+                var formData = new FormData();
+                    formData.append("foto", $("#varian_foto").get(0).files[0]);
+                    formData.append("produk", $('#varian_produk').val());
+                    formData.append("nama", $('#varian_nama').val());
+                    formData.append($("#names").val(),$("#tokens").val());
+
+                    $.ajax( {
+                        url        : '<?php echo site_url("atmin/api/varianadd"); ?>',
+                        type       : 'POST',
+                        contentType: false,
+                        cache      : false,
+                        processData: false,
+                        data       : formData,
+                        success    : function ( msg )
+                        {
+                            var data = eval("("+msg+")");
+                            updateToken(data.token);
+                            if(data.success == true){
+                                loadVariasi();
+                            }else{
+                                swal.fire("Gagal menyimpan","gagal menyimpan data varian, silahkan refresh halaman ini lalu edit kembali datanya","error");
+                            }
+                        }
+                    } );
+
             },500);
         });
+
         $("#simpansubvarian").on("submit",function(e){
-            e.preventDefault();
+            e.preventDe$("#fotoUpload").change(function(){
+            var formData = new FormData();
+            formData.append("fotoProduk", $("#fotoUpload").get(0).files[0]);
+            formData.append("jenis", 1);
+            formData.append("idproduk", <?php echo $id; ?>);
+            formData.append($("#names").val(),$("#tokens").val());
+            $.ajax( {
+                url        : '<?php echo site_url("atmin/api/uploadFotoProduk"); ?>',
+                type       : 'POST',
+                contentType: false,
+                cache      : false,
+                processData: false,
+                data       : formData,
+                xhr        : function ()
+                {
+                    var jqXHR = null;
+                    if ( window.ActiveXObject ){
+                        jqXHR = new window.ActiveXObject( "Microsoft.XMLHTTP" );
+                    }else{
+                        jqXHR = new window.XMLHttpRequest();
+                    }
+                    jqXHR.upload.addEventListener( "progress", function ( evt ){
+                        if ( evt.lengthComputable ){
+                            var percentComplete = Math.round( (evt.loaded * 100) / evt.total );
+                            $("#prosesUpload").html("mengunggah: "+percentComplete+"%");
+                        }
+                    }, false );
+                    /*jqXHR.addEventListener( "progress", function ( evt )
+                    {
+                        if ( evt.lengthComputable )
+                        {
+                            var percentComplete = Math.round( (evt.loaded * 100) / evt.total );
+                            //Do something with download progress
+                            console.log( 'Downloaded percent', percentComplete );
+                        }
+                    }, false );*/
+                    return jqXHR;
+                },
+                success    : function ( data )
+                {
+                    var datas = eval("("+data+")");
+                    updateToken(datas.token);
+                    $("#prosesUpload").html("");
+                    loadResult();
+                }
+            } );
+        });fault();
             $(".modal").modal("hide");
             var datar = $(this).serialize();
             datar = datar + "&" + $("#names").val() + "=" + $("#tokens").val();
@@ -232,7 +298,7 @@
             }
         })
     }
-    function hapusVarian(id){
+    function hapusVarian(id, foto){
         swal.fire({
             title: "Yakin menghapus varian ini?",
             text: "data yang sudah dihapus tidak dapat dikembalikan",
@@ -240,7 +306,7 @@
             showCancelButton: true
         }).then((val)=>{
             if(val.value){
-                $.post("<?=site_url("atmin/api/varianhapus")?>",{"id":id,"produk":<?=$id?>,[$("#names").val()]:$("#tokens").val()},function(msg){
+                $.post("<?=site_url("atmin/api/varianhapus")?>",{"id":id,"foto":foto,"produk":<?=$id?>,[$("#names").val()]:$("#tokens").val()},function(msg){
                     var data = eval("("+msg+")");
                     updateToken(data.token);
                     if(data.success == true){
@@ -284,17 +350,19 @@
 				</button>
 			</div>
 			<form id="simpanvarian" method="POST" enctype="multipart/form-data">
-				<input type="hidden" name="produk" value="<?=$id?>" />
-				<div class="modal-body">
+
+				<input type="hidden" name="produk" value="<?=$id?>" id="varian_produk" />
+				
+                <div class="modal-body">
 					<div class="form-group">
 						<label>Nama Varian</label>
-						<input type="text" class="form-control" name="nama" required />
+						<input type="text" class="form-control" name="nama" required id="varian_nama" />
 					</div>
                     <div class="form-group">
                         <label>Foto Varian</label>
-                        <input type="file" class="form-control" name="foto" required />
+                        <input type="file" class="form-control" name="foto" required id="varian_foto" />
                     </div>
-				</div>
+				</div> 
 				<div class="modal-footer">
 					<button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Simpan</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-times"></i> Batal</button>

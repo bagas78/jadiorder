@@ -494,7 +494,7 @@ class Manage extends CI_Controller {
 	public function produkform($id=0){
 		if(!isset($_SESSION["isMasok"])){
 			redirect("atmin/manage/login"); 
-			exit;
+			exit; 
 		}
 		
 		if(isset($_POST["nama"])){

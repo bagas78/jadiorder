@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2024 at 06:16 PM
+-- Generation Time: Mar 18, 2024 at 02:33 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -8298,7 +8298,11 @@ INSERT INTO `blw_notifikasi` (`id`, `usrid`, `jenis`, `tujuan`, `judul`, `pesan`
 (103, 0, 1, 'user@gmail.com', 'Jadiorder', '\n				Halo <b>Jhon Doe</b><br/>Pesanan Anda telah dibatalkan<br/>Status: <br/><b>DIBATALKAN OLEH ADMIN</b><br/><br/><b>Detail Pesanan</b><br/>No Invoice: <b>#2024020212629</b><br/>Total Pesanan: <b>Rp 10.000</b><br/>Ongkos Kirim: <b>Rp 0</b><br/>Kurir Pengiriman: <b>0 0</b><br/> <br/>Detail Pengiriman <br/>Penerima: <b>Jhon Doe</b> <br/>No HP: <b>087777666555</b> <br/>Alamat: <b>alamat RT 01 RW 01</b><br/> <br/>Informasi cara pembayaran dan status pesananmu langsung di menu:<br/><a href=\'https://127.0.0.1/jadiorder/manage/pesanan\'>PESANANKU &raquo;</a>\n			', 'Pesanan Dibatalkan', NULL, '2024-02-24 21:46:16', 0, '0000-00-00 00:00:00'),
 (104, 0, 2, '', '', '\n				Halo *Jhon Doe* \nPesanan Anda telah dibatalkan \nStatus: \n*DIBATALKAN OLEH ADMIN* \n \n*Detail Pesanan* \nNo Invoice: *#2024020212629* \nTotal Pesanan: *Rp 10.000* \nOngkos Kirim: *Rp 0* \nKurir Pengiriman: *0 0* \n  \nDetail Pengiriman  \nPenerima: *Jhon Doe*  \nNo HP: *087777666555*  \nAlamat: *alamat RT 01 RW 01* \n  \nInformasi cara pembayaran dan status pesananmu langsung di menu: \n*PESANANKU*\n			', '', NULL, '2024-02-24 21:46:16', 0, '0000-00-00 00:00:00'),
 (105, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>426291</b>\r\n					', 'OTP Login', NULL, '2024-02-25 10:35:47', 0, '0000-00-00 00:00:00'),
-(106, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>377943</b>\r\n					', 'OTP Login', NULL, '2024-02-25 13:38:10', 0, '0000-00-00 00:00:00');
+(106, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>377943</b>\r\n					', 'OTP Login', NULL, '2024-02-25 13:38:10', 0, '0000-00-00 00:00:00'),
+(107, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>756924</b>\r\n					', 'OTP Login', NULL, '2024-03-06 08:40:46', 0, '0000-00-00 00:00:00'),
+(108, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>996802</b>\r\n					', 'OTP Login', NULL, '2024-03-08 23:23:01', 0, '0000-00-00 00:00:00'),
+(109, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>180330</b>\r\n					', 'OTP Login', NULL, '2024-03-08 23:28:54', 0, '0000-00-00 00:00:00'),
+(110, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>060696</b>\r\n					', 'OTP Login', NULL, '2024-03-08 23:35:43', 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -8362,7 +8366,11 @@ INSERT INTO `blw_otplogin` (`id`, `tgl`, `usrid`, `kode`, `kadaluarsa`, `status`
 (64, '2024-02-24 21:14:07', 1, '425463', '2024-02-24 21:24:07', 1, '2024-02-24 21:14:15'),
 (65, '2024-02-24 21:17:44', 1, '265588', '2024-02-24 21:27:44', 1, '2024-02-24 21:17:49'),
 (66, '2024-02-25 10:35:47', 1, '426291', '2024-02-25 10:45:47', 1, '2024-02-25 10:35:54'),
-(67, '2024-02-25 13:38:10', 1, '377943', '2024-02-25 13:48:10', 1, '2024-02-25 13:38:16');
+(67, '2024-02-25 13:38:10', 1, '377943', '2024-02-25 13:48:10', 1, '2024-02-25 13:38:16'),
+(68, '2024-03-06 08:40:46', 1, '756924', '2024-03-06 08:50:46', 1, '2024-03-06 08:41:00'),
+(69, '2024-03-08 23:23:01', 1, '996802', '2024-03-08 23:33:01', 1, '2024-03-08 23:23:08'),
+(70, '2024-03-08 23:28:54', 1, '180330', '2024-03-08 23:38:54', 1, '2024-03-08 23:29:01'),
+(71, '2024-03-08 23:35:43', 1, '060696', '2024-03-08 23:45:43', 1, '2024-03-08 23:35:49');
 
 -- --------------------------------------------------------
 
@@ -8654,7 +8662,7 @@ CREATE TABLE `blw_produk` (
 --
 
 INSERT INTO `blw_produk` (`id`, `user`, `tglbuat`, `tglupdate`, `digital`, `akses`, `demo`, `demoadmin`, `nama`, `kode`, `url`, `deskripsi`, `idcat`, `brandid`, `berat`, `harga`, `hargacoret`, `hargareseller`, `hargaagen`, `hargaagensp`, `hargadistri`, `koin`, `afiliasi`, `minorder`, `stok`, `gudang`, `variasi`, `subvariasi`, `status`, `pohari`, `preorder`) VALUES
-(10, '1', '2024-02-25 10:44:14', '2024-02-28 00:11:37', 0, '', '', '', 'Gantungan Kunci ', '25104332', 'Gantungan-Kunci--104414', '<p>produk joss gandoss</p>', 4, 1, 250, 2000, 3000, 0, 0, 0, 0, 0, 0, 1, 20, 0, '', '', 1, 0, 0),
+(10, '1', '2024-02-25 10:44:14', '2024-03-08 23:43:31', 0, '', '', '', 'Gantungan Kunci ', '25104332', 'Gantungan-Kunci--104414', '<p>produk joss gandoss</p>', 4, 1, 250, 2000, 3000, 0, 0, 0, 0, 0, 0, 1, 20, 0, 'Biru', 'Ukuran', 1, 0, 0),
 (11, '', '2024-02-25 10:55:54', '2024-02-25 10:55:54', 0, '', '', '', 'KTP printer', '25105513', 'KTP-printer-105554', '<p><br></p>', 4, 1, 250, 3000, 5000, 0, 0, 0, 0, 0, 0, 1, 50, 0, '', '', 1, 0, 0);
 
 -- --------------------------------------------------------
@@ -8709,7 +8717,7 @@ CREATE TABLE `blw_produkvariasi` (
 --
 
 INSERT INTO `blw_produkvariasi` (`id`, `kode`, `idproduk`, `warna`, `size`, `stok`, `kuota`, `harga`, `hargareseller`, `hargaagen`, `hargaagensp`, `hargadistri`, `tgl`) VALUES
-(7, '', 10, 5, 2, 20, 20, 2000, 0, 0, 0, 0, '2024-02-28 00:07:57');
+(44, '', 11, 39, 0, 0, 0, 3000, 0, 0, 0, 0, '2024-03-16 23:16:51');
 
 -- --------------------------------------------------------
 
@@ -9514,7 +9522,7 @@ CREATE TABLE `blw_userdata` (
 --
 
 INSERT INTO `blw_userdata` (`id`, `status`, `username`, `nohp`, `password`, `nama`, `tgl`, `tglbuat`, `tglupdate`, `level`, `upline`) VALUES
-(1, 1, 'user@gmail.com', '', '', 'Jhon Doe', '2024-02-28 00:13:02', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0);
+(1, 1, 'user@gmail.com', '', '', 'Jhon Doe', '2024-03-09 13:26:48', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -9551,14 +9559,6 @@ CREATE TABLE `blw_variasisize` (
   `nama` text COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
---
--- Dumping data for table `blw_variasisize`
---
-
-INSERT INTO `blw_variasisize` (`id`, `tgl`, `usrid`, `nama`) VALUES
-(1, '2024-02-17 11:12:44', 0, 'Jhon Doe'),
-(2, '2024-02-28 00:07:49', 0, 'Biru');
-
 -- --------------------------------------------------------
 
 --
@@ -9569,19 +9569,16 @@ CREATE TABLE `blw_variasiwarna` (
   `id` int(11) NOT NULL,
   `tgl` datetime NOT NULL,
   `usrid` int(11) NOT NULL,
-  `nama` text COLLATE utf8_bin NOT NULL
+  `nama` text COLLATE utf8_bin NOT NULL,
+  `foto` text COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `blw_variasiwarna`
 --
 
-INSERT INTO `blw_variasiwarna` (`id`, `tgl`, `usrid`, `nama`) VALUES
-(1, '2024-02-13 01:52:12', 0, 'hijau'),
-(2, '2024-02-26 10:40:19', 0, 'hitam'),
-(3, '2024-02-26 10:46:40', 0, 'hitam'),
-(4, '2024-02-28 00:06:12', 0, 'hitam'),
-(5, '2024-02-28 00:07:11', 0, 'HItam');
+INSERT INTO `blw_variasiwarna` (`id`, `tgl`, `usrid`, `nama`, `foto`) VALUES
+(39, '2024-03-16 23:16:51', 0, 'hitam', '0f8e18ac84a8462d96e22781863b5c1b.jpg');
 
 -- --------------------------------------------------------
 
@@ -10252,7 +10249,7 @@ ALTER TABLE `blw_mutasi`
 -- AUTO_INCREMENT for table `blw_notifikasi`
 --
 ALTER TABLE `blw_notifikasi`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT for table `blw_otpdaftar`
@@ -10264,7 +10261,7 @@ ALTER TABLE `blw_otpdaftar`
 -- AUTO_INCREMENT for table `blw_otplogin`
 --
 ALTER TABLE `blw_otplogin`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `blw_page`
@@ -10330,7 +10327,7 @@ ALTER TABLE `blw_produkgrosir`
 -- AUTO_INCREMENT for table `blw_produkvariasi`
 --
 ALTER TABLE `blw_produkvariasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `blw_profil`
@@ -10474,13 +10471,13 @@ ALTER TABLE `blw_usertemp`
 -- AUTO_INCREMENT for table `blw_variasisize`
 --
 ALTER TABLE `blw_variasisize`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `blw_variasiwarna`
 --
 ALTER TABLE `blw_variasiwarna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `blw_voucher`
