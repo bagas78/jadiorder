@@ -6,7 +6,7 @@
 				Home
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
-
+ 
       <?php
 		$set = $this->func->getSetting("semua");
 		$kategori = $this->func->getKategori($data->idcat,"semua");
@@ -251,11 +251,18 @@
 									<div class="col-12 p-lr-0 m-b-6">
 									<?=ucwords(strtolower($data->variasi))?>
 									</div>
+
+									<!-- hidden -->
 									<input type="hidden" id="warna" >
+									
 									<div class="col-12 p-lr-0 m-b-10" id="pilihwarna">
+
+										<button type="button" onclick="change_warna(0)" class="btn btn-outline-primary btn-sm p-lr-20 m-r-6 m-b-8">Original</button>
+
 										<?php
-											$this->db->select("SUM(stok) as stok,warna,id,hargadistri,hargaagensp,hargaagen,hargareseller,harga");
+											$this->db->select("SUM(stok) as stok,foto,warna,produkvariasi.id as id,hargadistri,hargaagensp,hargaagen,hargareseller,harga");
 											$this->db->where("idproduk",$data->id);
+											$this->db->join("variasiwarna", "variasiwarna.id = produkvariasi.warna");
 											$this->db->group_by("warna");
 											$war = $this->db->get("produkvariasi");
 											foreach($war->result() as $w){
@@ -271,7 +278,7 @@
 													$hg = $w->harga;
 												}
 												if($w->stok > 0){
-													echo "<button type='button' class='btn btn-outline-primary btn-sm p-lr-20 m-r-6 m-b-8' data-warna='".$w->warna."' data-stok='".$w->stok."' data-harga='".$hg."' data-variasi='".$w->id."'>".$this->func->getWarna($w->warna,"nama")."</button>";
+													echo '<button onclick="change_warna(\''.$w->foto.'\');" type="button" class="btn btn-outline-primary btn-sm p-lr-20 m-r-6 m-b-8" data-warna="'.$w->warna.'" data-stok="'.$w->stok.'" data-harga="'.$hg.'" data-variasi="'.$w->id.'">'.$this->func->getWarna($w->warna,"nama").'</button>';
 												}
 											}
 										?>
@@ -533,8 +540,11 @@
 			$("#pilihwarna .btn").addClass("btn-outline-primary");
 			$(this).removeClass("btn-outline-primary");
 			$(this).addClass("btn-primary");
+
 			$("#warna").val($(this).data("warna"));
+			
 			<?php if(count($sizid) == 0){ ?>
+
 				$("#variasi").val($(this).data('variasi'));
 				$("#jumlahorder").attr("max",$(this).data('stok'));
 				$("#stokmaks").html($(this).data('stok'));
@@ -657,3 +667,20 @@
 		}
 	?>
   </div>
+
+
+<script type="text/javascript">
+	function change_warna(foto){
+
+		if (foto == 0) {
+
+			//original
+			$('.prod-thumb-item:eq(0)').click();
+
+		}else{
+
+			//variasi warna
+			$('#prod-img').attr('src', '<?=base_url('cdn/uploads/')?>'+foto);
+		}
+	}
+</script>
