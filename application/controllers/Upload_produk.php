@@ -6,7 +6,8 @@ class Upload_produk extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-
+		$this->load->model('m_terjual');
+		$this->load->model('m_withdraw');
 		$this->load->library('session');
 	}
 
@@ -18,7 +19,7 @@ class Upload_produk extends CI_Controller {
 		$this->load->view("footv2");
 	}
 	public function produk(){
-
+ 
 		//get produk
 		$res = $this->load->view('upload_produk/list',"",true);
 		echo json_encode(["result"=>$res,"token"=>$this->security->get_csrf_hash()]);
@@ -60,5 +61,53 @@ class Upload_produk extends CI_Controller {
 			//$this->load->view("footv2");
 			$this->load->view('atmin/admin/foot');
 		}
+	}
+	function terjual(){
+
+		$this->load->view("headv2",array("titel"=>"Akun Saya"));
+		$this->load->view("upload_produk/terjual");
+		$this->load->view("footv2");
+	}
+	function terjual_get(){
+
+		$user = $_SESSION["usrid"];
+		$where = array('blw_transaksi.status' => 3, 'blw_produk.user' => $user);
+
+	    $data = $this->m_terjual->get_datatables($where);
+		$total = $this->m_terjual->count_all($where);
+		$filter = $this->m_terjual->count_filtered($where);
+
+		$output = array(
+			"draw" => $_GET['draw'],
+			"recordsTotal" => $total,
+			"recordsFiltered" => $filter,
+			"data" => $data,
+		);
+		//output dalam format JSON
+		echo json_encode($output);
+	}
+	function withdraw(){
+
+		$this->load->view("headv2",array("titel"=>"Akun Saya"));
+		$this->load->view("upload_produk/withdraw");
+		$this->load->view("footv2");
+	}
+	function withdraw_get(){
+
+		$user = $_SESSION["usrid"];
+		$where = array('blw_transaksi.status' => 3, 'blw_produk.user' => $user);
+
+	    $data = $this->m_withdraw->get_datatables($where);
+		$total = $this->m_withdraw->count_all($where);
+		$filter = $this->m_withdraw->count_filtered($where);
+
+		$output = array(
+			"draw" => $_GET['draw'],
+			"recordsTotal" => $total,
+			"recordsFiltered" => $filter,
+			"data" => $data,
+		);
+		//output dalam format JSON
+		echo json_encode($output);
 	}
 }

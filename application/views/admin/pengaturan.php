@@ -1,3 +1,19 @@
+<style type="text/css">
+	.verif{
+		border-width: 1px;
+	    border-style: solid;
+	    padding: 10px;
+	    background: cornsilk;
+	    border-color: burlywood;
+	}
+	.bd{
+		align-self: center;
+		text-align: center;
+		font-size: xxx-large;
+		color: white;
+	}
+</style>
+
 <!-- sweet alert -->
 <script type="text/javascript" src="<?= base_url('assets/vendor/swal/sweetalert2.min.js') ?>"></script>
  
@@ -256,7 +272,7 @@
 								<?php if (@$status['status'] == 3): ?>
 									
 									<!-- Di setujui -->
-									<span>Akun anda di setujui <i style="color: green;" class="fas fa-check"></i></span>
+									<span class="verif">Akun anda di setujui <i style="color: green;" class="fas fa-check"></i></span>
 
 								<?php endif ?>
 
@@ -404,11 +420,41 @@
 								<?php if (@$status_penjualan['status'] == 2): ?>
 									
 									<!-- Di setujui -->
-									<span>Akun anda di setujui <i style="color: green;" class="fas fa-check"></i></span>
+									<span class="verif">Akun anda di setujui <i style="color: green;" class="fas fa-check"></i></span>
 
 									<!-- upload produk -->
 									<br/><br/>
-									<a href="<?=base_url('upload_produk')?>"><button class="btn btn-primary">Upload produk <i class="fa fa-plus"></i></button></a>
+
+									<div class="row">
+									  <div class="col-sm-4">
+									    <div class="card bg-warning">
+									      <div class="card-body bd">
+									      	<i class="fas fa-shopping-cart"></i>
+									      	<br>
+									        <a href="<?=base_url('upload_produk')?>"><button class="btn btn-light">Upload Produk</button></a>
+									      
+									      </div>
+									    </div>
+									  </div>
+									  <div class="col-sm-4">
+									    <div class="card bg-info">
+									      <div class="card-body bd">
+									      	<i class="fas fa-gift"></i>
+									      	<br/>
+									        <a href="<?=base_url('upload_produk/terjual')?>"><button class="btn btn-light">Produk Terjual</i></button></a>
+									      </div>
+									    </div>
+									  </div>
+									  <div class="col-sm-4">
+									    <div class="card bg-success">
+									      <div class="card-body bd">
+									      	<i class="fas fa-dollar-sign"></i>
+									      	<br/>
+									        <a href="<?=base_url('upload_produk/withdraw')?>"><button class="btn btn-light">Withdraw</button></a>
+									      </div>
+									    </div>
+									  </div>
+									</div>
 
 								<?php endif ?>
 

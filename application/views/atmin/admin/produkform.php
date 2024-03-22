@@ -16,7 +16,7 @@
 ?> 
 
 <?php
-	$this->session->unset_userdata("fotoProduk");
+	$this->session->unset_userdata("fotoProduk"); 
 	$varjum = 0;
 	if($id != 0 || (isset($_GET["copy"]) AND intval($_GET["copy"]) > 0)){
 		if(isset($_GET["copy"])){
@@ -283,6 +283,15 @@
 					<input type="number" class="form-control" name="harga" value="<?php echo ($id != 0) ? $data->harga : 0; ?>" required />
 				</div>
 			</div>
+			<div class="row m-lr-0 m-b-32">
+					<div class="col-md-4">
+						<div class="m-b-4"><b>Harga Beli Produk</b> &nbsp;<span class="badge badge-form">wajib</span></div>
+						<div class="fs-12">Harga pembelian produk dari suplier/penyedia produk. hanya masukkan angka saja. cth: 200000</div>
+					</div>
+					<div class="col-md-3 col-6">
+						<input type="number" class="form-control" name="hargabeli" value="<?php echo ($id != 0) ? $data->hargabeli : 0; ?>" required />
+					</div>
+				</div>
 			<div class="row m-lr-0 m-b-32">
 				<div class="col-md-4">
 					<div class="m-b-4"><b>Nilai Komisi Afiliasi</b> &nbsp;<span class="badge badge-form">wajib</span></div>

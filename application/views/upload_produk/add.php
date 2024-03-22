@@ -22,7 +22,7 @@
 	<?php 
 		}else{
 			if(isset($_GET["copy"])){
-	?>
+	?> 
 	<h4 class="page-title">Copy Produk</h4>
 	<?php 	}else{ ?>
 	<h4 class="page-title">Edit Produk</h4>
@@ -304,6 +304,15 @@
 					</div>
 					<div class="col-md-3 col-6">
 						<input type="number" class="form-control" name="harga" value="<?php echo ($id != 0) ? $data->harga : 0; ?>" required />
+					</div>
+				</div>
+				<div class="row m-lr-0 m-b-32">
+					<div class="col-md-4">
+						<div class="m-b-4"><b>Harga Produk</b> &nbsp;<span class="badge badge-form">wajib</span></div>
+						<div class="fs-12">Harga pembelian produk dari suplier/penyedia produk. hanya masukkan angka saja. cth: 200000</div>
+					</div>
+					<div class="col-md-3 col-6">
+						<input type="number" class="form-control" name="hargabeli" value="<?php echo ($id != 0) ? $data->hargabeli : 0; ?>" required />
 					</div>
 				</div>
 				<!-- <div class="row m-lr-0 m-b-32">
