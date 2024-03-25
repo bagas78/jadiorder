@@ -3,7 +3,7 @@
 			$perpage = (isset($_GET["perpage"]) AND $_GET["perpage"] != "") ? $_GET["perpage"] : 10;
 			$cari = (isset($_POST["cari"]) AND $_POST["cari"] != "") ? $_POST["cari"] : "";
 			
-			$where = "user = '' AND (nama LIKE '%$cari%' OR harga LIKE '%$cari%' OR berat LIKE '%$cari%' OR deskripsi LIKE '%$cari%')";
+			$where = "(nama LIKE '%$cari%' OR harga LIKE '%$cari%' OR berat LIKE '%$cari%' OR deskripsi LIKE '%$cari%')";
 			if(isset($_POST["status"])){
 				if($_POST["status"] == 1){
 					$where = "stok > 0 AND (".$where.")";
@@ -16,7 +16,7 @@
 			$this->db->where($where); 
 			$row = $this->db->get("produk");
 			
-			$this->db->where($where);
+			$this->db->where($where); 
 			$this->db->limit($perpage,($page-1)*$perpage);
 			$this->db->order_by("tglupdate DESC");
 			$db = $this->db->get("produk");

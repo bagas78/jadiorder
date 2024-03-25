@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
 	<?php $set = $this->admfunc->globalset("semua"); ?>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title><?=$set->nama?> Dashboard Management</title>
@@ -128,6 +128,12 @@
 						<a href="<?=site_url("atmin/flashsale")?>">
 							<i class="fas fa-bolt text-warning"></i>
 							<p>Flash Sale</p>
+						</a>
+					</li>
+					<li class="nav-item <?php echo (isset($menu) AND $menu == 37) ? "active" : "" ?>">
+						<a href="<?=site_url("atmin/foryou")?>">
+							<i class="fas fa-bolt text-warning"></i>
+							<p>For You</p>
 						</a>
 					</li>
 					<li class="nav-item <?php echo (isset($menu) AND $menu == 3) ? "active" : "" ?>">

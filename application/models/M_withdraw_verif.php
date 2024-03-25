@@ -1,18 +1,18 @@
 <?php
 
-class M_withdraw extends CI_Model {  
+class M_withdraw_verif extends CI_Model {  
 	
 	//nama tabel
-	var $table = 'blw_transaksi'; 
+	var $table = 'blw_withdraw'; 
 
 	//kolom yang di tampilkan
-	var $column_order = array(null,'blw_transaksi.orderid'); 
+	var $column_order = array(null,'blw_withdraw.rekening','blw_withdraw.kode','blw_userdata.nama'); 
 
 	//kolom yang di tampilkan setelah seacrh
-	var $column_search = array('blw_transaksi.orderid'); 
+	var $column_search = array('blw_withdraw.rekening','blw_withdraw.kode','blw_userdata.nama'); 
 
 	//urutan 
-	var $order = array('blw_transaksi.tgl' => 'desc'); 
+	var $order = array('blw_withdraw.id' => 'desc'); 
 
 	public function __construct()
 	{
@@ -61,13 +61,11 @@ class M_withdraw extends CI_Model {
 
 	function get_datatables($where)
 	{
-		$this->_get_datatables_query();
+		$this->_get_datatables_query(); 
 		if($_GET['length'] != -1)
-		$this->db->select('SUM(blw_transaksiproduk.hargabeli * blw_transaksiproduk.jumlah) as total, DATE_FORMAT(blw_transaksiproduk.tgl, "%Y") AS tahun, DATE_FORMAT(blw_transaksiproduk.tgl, "%M") AS bulan');
+		$this->db->select("DATE_FORMAT(blw_withdraw.tanggal, '%d/%m/%Y') as tanggal, blw_withdraw.kode as kode, blw_withdraw.rekening as rekening, blw_withdraw.nominal as nominal, blw_withdraw.biaya as biaya, blw_withdraw.status as status, blw_withdraw.id as id, blw_userdata.nama");
+		$this->db->join('blw_userdata', 'blw_userdata.id = blw_withdraw.user');
 		$this->db->where($where);
-		$this->db->join('blw_transaksiproduk', 'blw_transaksiproduk.idtransaksi = blw_transaksi.id');
-		$this->db->join('blw_produk', 'blw_produk.id = blw_transaksiproduk.idproduk');
-		$this->db->group_by('blw_transaksiproduk.tgl');
 		$this->db->limit($_GET['length'], $_GET['start']);
 		$query = $this->db->get();
 		return $query->result();
@@ -76,11 +74,8 @@ class M_withdraw extends CI_Model {
 	function count_filtered($where)
 	{
 		$this->_get_datatables_query();
-		$this->db->select('SUM(blw_transaksiproduk.hargabeli) as total, DATE_FORMAT(blw_transaksiproduk.tgl, "%Y") AS tahun, DATE_FORMAT(blw_transaksiproduk.tgl, "%M") AS bulan');
 		$this->db->where($where);
-		$this->db->join('blw_transaksiproduk', 'blw_transaksiproduk.idtransaksi = blw_transaksi.id');
-		$this->db->join('blw_produk', 'blw_produk.id = blw_transaksiproduk.idproduk');
-		$this->db->group_by('blw_transaksiproduk.tgl');
+		$this->db->join('blw_userdata', 'blw_userdata.id = blw_withdraw.user');
 		$query = $this->db->get();
 		return $query->num_rows();
 	}
@@ -88,11 +83,8 @@ class M_withdraw extends CI_Model {
 	public function count_all($where)
 	{
 		$this->db->from($this->table);
-		$this->db->select('SUM(blw_transaksiproduk.hargabeli) as total, DATE_FORMAT(blw_transaksiproduk.tgl, "%Y") AS tahun, DATE_FORMAT(blw_transaksiproduk.tgl, "%M") AS bulan');
 		$this->db->where($where);
-		$this->db->join('blw_transaksiproduk', 'blw_transaksiproduk.idtransaksi = blw_transaksi.id');
-		$this->db->join('blw_produk', 'blw_produk.id = blw_transaksiproduk.idproduk');
-		$this->db->group_by('blw_transaksiproduk.tgl');
+		$this->db->join('blw_userdata', 'blw_userdata.id = blw_withdraw.user');
 		return $this->db->count_all_results();
 	}
 

@@ -333,6 +333,8 @@
 	<script src="<?= base_url('assets/vendor/summernote/summernote-bs4.js') ?>"></script>
 	<script src="<?= base_url('assets/atmin/js/bootstrap-datetimepicker.js') ?>"></script>
 
+	<script src="<?= base_url('assets/js/number_format.js') ?>"></script>
+
 
 	<script type="text/javascript">
 		$(function(){

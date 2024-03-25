@@ -54,8 +54,20 @@ $(document).ready(function() {
         "columns": [   
         			{ "data": "id_transaksi" },                            
                     { "data": "produk"},
-                    { "data": "jumlah"},
-                    { "data": "harga"},
+                    { "data": "jumlah",
+		                "render": 
+		                function( data ) {
+
+		                      return '<span>'+number_format(data)+'</span>';
+		                }
+		            },
+                    { "data": "harga",
+		                "render": 
+		                function( data ) {
+
+		                      return '<span>'+number_format(data)+'</span>';
+		                }
+		            },
                     { "data": "tanggal"},
                     
                 ],

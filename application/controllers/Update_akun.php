@@ -7,6 +7,7 @@ class Update_akun extends CI_Controller {
 	{
 		parent::__construct();
 
+		$this->load->model('m_withdraw_verif');
 		$this->load->library('session');
 	}
 
@@ -14,7 +15,7 @@ class Update_akun extends CI_Controller {
 	public function save(){ 
 		$akun = $this->session->userdata('usrid');
 
-		if (@$_FILES['ktp']['name']) {
+		if (@$_FILES['ktp']['name']) { 
 				
 			$typefile = explode('/', $_FILES['ktp']['type']);
 			$filename = $_FILES['ktp']['name']; 
@@ -397,5 +398,58 @@ class Update_akun extends CI_Controller {
 		}else{
 			echo json_encode(array("success"=>false,"msg"=>"form not submitted!"));
 		}
+	}
+
+	// USER WITHDRAW //
+
+	function withdraw(){
+
+		$this->load->view('atmin/admin/head',["menu"=>36]);
+		$this->load->view('penjual/withdraw');
+		$this->load->view('atmin/admin/foot');
+	}
+	function withdraw_get(){
+
+		$where = array('hapus' => 0);
+
+	    $data = $this->m_withdraw_verif->get_datatables($where);
+		$total = $this->m_withdraw_verif->count_all($where);
+		$filter = $this->m_withdraw_verif->count_filtered($where);
+
+		$output = array(
+			"draw" => $_GET['draw'],
+			"recordsTotal" => $total,
+			"recordsFiltered" => $filter,
+			"data" => $data,
+		);
+		//output dalam format JSON
+		echo json_encode($output);
+	}
+	function verifikasi_witdraw($id){
+
+		$status = strip_tags(@$_POST['status']);
+
+		if ($status == 1) {
+			//setujui
+			$set = array(
+						'biaya' => strip_tags(@$_POST['biaya']),
+						'status' => $status,
+					);
+		}else{
+			//tolak
+			$set = array(
+						'status' =>  strip_tags(@$_POST['status']),
+					);
+		}
+
+		$this->db->set($set);
+		$this->db->where('id', $id);
+		if ($this->db->update('blw_withdraw')) {
+			$this->session->set_flashdata('success', 'Data berhasil di simpan');
+		}else{
+			$this->session->set_flashdata('fail', 'Data gagal di simpan');
+		}
+
+		redirect(base_url('update_akun/withdraw'));
 	}
 }

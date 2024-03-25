@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 22, 2024 at 05:52 PM
+-- Generation Time: Mar 25, 2024 at 11:48 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -292,7 +292,7 @@ CREATE TABLE `blw_flashsale` (
 --
 
 INSERT INTO `blw_flashsale` (`id`, `tgl`, `usrid`, `mulai`, `selesai`, `idproduk`, `harga`, `stok`, `terjual`, `tgl_update`, `status`) VALUES
-(1, '2024-01-26 04:01:31', 0, '2024-01-26 04:01:00', '2024-01-30 04:01:00', 1, 1500, 90, 0, '0000-00-00 00:00:00', 1);
+(2, '2024-03-26 03:52:33', 0, '2024-03-26 03:52:00', '2024-03-30 03:52:00', 11, 2500, 200, 0, '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -357,6 +357,31 @@ CREATE TABLE `blw_formorder_detail` (
   `status` int(11) NOT NULL,
   `urutan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blw_foryou`
+--
+
+CREATE TABLE `blw_foryou` (
+  `id` int(11) NOT NULL,
+  `tgl` datetime NOT NULL,
+  `usrid` int(11) NOT NULL,
+  `idproduk` int(11) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `stok` int(11) NOT NULL,
+  `terjual` int(11) NOT NULL,
+  `tgl_update` datetime NOT NULL,
+  `status` int(11) NOT NULL COMMENT '0=draft,1=aktif,2=selesai'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `blw_foryou`
+--
+
+INSERT INTO `blw_foryou` (`id`, `tgl`, `usrid`, `idproduk`, `harga`, `stok`, `terjual`, `tgl_update`, `status`) VALUES
+(6, '2024-03-26 05:46:56', 0, 10, 1700, 99, 0, '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -8323,7 +8348,9 @@ INSERT INTO `blw_notifikasi` (`id`, `usrid`, `jenis`, `tujuan`, `judul`, `pesan`
 (119, 0, 2, '', '', '\r\n				Halo *Bagas Pramono* \nTerimakasih, sudah membeli produk kami. \nSegera lakukan pembayaran agar pesananmu segera diproses \n \n*Transfer pembayaran ke rekening berikut:* \n\n \n*Detail Pesanan* \nNo Invoice: *#2024032113458* \nTotal Pesanan: *Rp 44.000* \nOngkos Kirim: *Rp 42.000* \nKurir Pengiriman: *J&T EXPRESS REGULER* \n  \nDetail Pengiriman  \nPenerima: *Bagas Pramono*  \nNo HP: *085855011542*  \nAlamat: *kademangan rt01 rw01* \n  \nInformasi cara pembayaran dan status pesananmu langsung di menu: \n*PESANANKU*\r\n			', '', NULL, '2024-03-21 12:50:59', 0, '0000-00-00 00:00:00'),
 (120, 0, 1, 'bagas@gmail.com', 'Jadiorder - Pesanan', '\n				Halo <b>Bagas Pramono</b><br/>Terimakasih, pembayaran untuk pesananmu sudah kami terima.<br/>Mohon ditunggu, admin kami akan segera memproses pesananmu<br/><b>Detail Pesanan</b><br/>No Invoice: <b>#2024032113458</b><br/>Total Pesanan: <b>Rp 44.000</b><br/>Ongkos Kirim: <b>Rp 42.000</b><br/>Kurir Pengiriman: <b>J&T EXPRESS REGULER</b><br/> <br/>Detail Pengiriman <br/>Penerima: <b>Bagas Pramono</b> <br/>No HP: <b>085855011542</b> <br/>Alamat: <b>kademangan rt01 rw01</b><br/> <br/>Cek Status pesananmu langsung di menu:<br/><a href=\'https://127.0.0.1/jadiorder/manage/pesanan\'>PESANANKU &raquo;</a>\n			', 'Pesanan', NULL, '2024-03-21 19:53:12', 0, '0000-00-00 00:00:00'),
 (121, 0, 2, '', '', '\n				Halo *Bagas Pramono* \nTerimakasih, pembayaran untuk pesananmu sudah kami terima. \nMohon ditunggu, admin kami akan segera memproses pesananmu \n*Detail Pesanan* \nNo Invoice: *#2024032113458* \nTotal Pesanan: *Rp 44.000* \nOngkos Kirim: *Rp 42.000* \nKurir Pengiriman: *J&T EXPRESS REGULER* \n  \nDetail Pengiriman  \nPenerima: *Bagas Pramono* \nNo HP: *085855011542* \nAlamat: *kademangan rt01 rw01* \n  \nCek Status pesananmu langsung di menu: \n*PESANANKU*\n			', '', NULL, '2024-03-21 19:53:12', 0, '0000-00-00 00:00:00'),
-(122, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>870795</b>\r\n					', 'OTP Login', NULL, '2024-03-21 20:03:14', 0, '0000-00-00 00:00:00');
+(122, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>870795</b>\r\n					', 'OTP Login', NULL, '2024-03-21 20:03:14', 0, '0000-00-00 00:00:00'),
+(123, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>502572</b>\r\n					', 'OTP Login', NULL, '2024-03-22 23:54:31', 0, '0000-00-00 00:00:00'),
+(124, 0, 1, 'user@gmail.com', 'Jadiorder - OTP Login', '\r\n						<b>PERHATIAN!</b><br/>JANGAN BERIKAN kode ini kepada siapa pun, TERMASUK TIM JADIORDER<br/>WASPADA PENIPUAN!<br/>Untuk MASUK KE AKUN JADIORDER, masukkan kode RAHASIA: <b>357144</b>\r\n					', 'OTP Login', NULL, '2024-03-26 04:07:14', 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -8395,7 +8422,9 @@ INSERT INTO `blw_otplogin` (`id`, `tgl`, `usrid`, `kode`, `kadaluarsa`, `status`
 (72, '2024-03-18 09:27:44', 1, '834324', '2024-03-18 09:37:44', 1, '2024-03-18 09:27:51'),
 (73, '2024-03-21 11:08:00', 1, '116471', '2024-03-21 11:18:00', 1, '2024-03-21 11:08:12'),
 (74, '2024-03-21 12:47:56', 2, '830738', '2024-03-21 12:57:56', 1, '2024-03-21 12:48:05'),
-(75, '2024-03-21 20:03:14', 1, '870795', '2024-03-21 20:13:14', 1, '2024-03-21 20:03:22');
+(75, '2024-03-21 20:03:14', 1, '870795', '2024-03-21 20:13:14', 1, '2024-03-21 20:03:22'),
+(76, '2024-03-22 23:54:31', 1, '502572', '2024-03-23 00:04:31', 1, '2024-03-22 23:54:38'),
+(77, '2024-03-26 04:07:14', 1, '357144', '2024-03-26 04:17:14', 1, '2024-03-26 04:07:23');
 
 -- --------------------------------------------------------
 
@@ -9440,7 +9469,7 @@ CREATE TABLE `blw_transaksi` (
 --
 
 INSERT INTO `blw_transaksi` (`id`, `orderid`, `tgl`, `tglupdate`, `kadaluarsa`, `usrid`, `usrid_temp`, `tipeco`, `digital`, `gudang`, `dropship`, `dropshipnomer`, `dropshipalamat`, `dropshipresi`, `dropshipkurir`, `alamat`, `po`, `berat`, `ongkir`, `kurir`, `paket`, `dari`, `tujuan`, `cod`, `biaya_cod`, `resi`, `resimarketplace`, `kirim`, `status`, `idbayar`, `selesai`, `ajukanbatal`, `keterangan`, `formid`, `formdata`) VALUES
-(7, 'TRX20240321125045', '2024-03-21 12:50:45', '2024-03-21 19:53:12', '2024-03-23 12:50:45', 2, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 2, 0, 250, 42000, '6', '11', 119, 3195, 0, 0, '', '', '0000-00-00 00:00:00', 1, 13, '0000-00-00 00:00:00', 0, '', 0, '');
+(7, 'TRX20240321125045', '2024-03-21 12:50:45', '2024-03-21 19:53:12', '2024-03-23 12:50:45', 2, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 2, 0, 250, 42000, '6', '11', 119, 3195, 0, 0, '', '', '0000-00-00 00:00:00', 3, 13, '0000-00-00 00:00:00', 0, '', 0, '');
 
 -- --------------------------------------------------------
 
@@ -9473,7 +9502,7 @@ CREATE TABLE `blw_transaksiproduk` (
 --
 
 INSERT INTO `blw_transaksiproduk` (`id`, `usrid`, `usrid_temp`, `variasi`, `idproduk`, `flashsale`, `digital`, `gudang`, `tgl`, `jumlah`, `harga`, `hargabeli`, `koin`, `diskon`, `keterangan`, `idtransaksi`, `idpo`) VALUES
-(12, 2, 0, 47, 10, 0, 0, 0, '2024-03-21 12:49:23', 1, 2000, 0, 0, 0, 'di cek dulu sebelum di kirim', 7, 0);
+(12, 2, 0, 47, 10, 0, 0, 0, '2024-03-21 12:49:23', 40, 2500, 1500, 0, 0, 'di cek dulu sebelum di kirim', 7, 0);
 
 -- --------------------------------------------------------
 
@@ -9580,7 +9609,7 @@ CREATE TABLE `blw_userdata` (
 --
 
 INSERT INTO `blw_userdata` (`id`, `status`, `username`, `nohp`, `password`, `nama`, `tgl`, `tglbuat`, `tglupdate`, `level`, `upline`) VALUES
-(1, 1, 'user@gmail.com', '', '', 'Jhon Doe', '2024-03-22 22:34:27', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
+(1, 1, 'user@gmail.com', '', '', 'Jhon Doe', '2024-03-26 05:47:19', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0),
 (2, 1, 'bagas@gmail.com', '', '', 'Bagas Pramono', '2024-03-21 20:02:59', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 0);
 
 -- --------------------------------------------------------
@@ -9694,6 +9723,31 @@ CREATE TABLE `blw_wishlist` (
   `idproduk` int(11) NOT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blw_withdraw`
+--
+
+CREATE TABLE `blw_withdraw` (
+  `id` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 0 COMMENT '0 = waiting, 1 = sukses 2 = ditolak',
+  `user` text DEFAULT NULL,
+  `rekening` text DEFAULT NULL,
+  `kode` text DEFAULT NULL,
+  `nominal` text DEFAULT NULL,
+  `biaya` text DEFAULT '0',
+  `tanggal` date DEFAULT curdate(),
+  `hapus` int(11) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `blw_withdraw`
+--
+
+INSERT INTO `blw_withdraw` (`id`, `status`, `user`, `rekening`, `kode`, `nominal`, `biaya`, `tanggal`, `hapus`) VALUES
+(10, 1, '1', '6675576', '006', '50000', '6500', '2024-03-25', 0);
 
 -- --------------------------------------------------------
 
@@ -9814,6 +9868,12 @@ ALTER TABLE `blw_formorder_bullet`
 -- Indexes for table `blw_formorder_detail`
 --
 ALTER TABLE `blw_formorder_detail`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `blw_foryou`
+--
+ALTER TABLE `blw_foryou`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -10142,6 +10202,12 @@ ALTER TABLE `blw_wishlist`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `blw_withdraw`
+--
+ALTER TABLE `blw_withdraw`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `blw_xendit`
 --
 ALTER TABLE `blw_xendit`
@@ -10221,7 +10287,7 @@ ALTER TABLE `blw_dropshipper_syarat`
 -- AUTO_INCREMENT for table `blw_flashsale`
 --
 ALTER TABLE `blw_flashsale`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `blw_formorder`
@@ -10240,6 +10306,12 @@ ALTER TABLE `blw_formorder_bullet`
 --
 ALTER TABLE `blw_formorder_detail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `blw_foryou`
+--
+ALTER TABLE `blw_foryou`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `blw_gudang`
@@ -10311,7 +10383,7 @@ ALTER TABLE `blw_mutasi`
 -- AUTO_INCREMENT for table `blw_notifikasi`
 --
 ALTER TABLE `blw_notifikasi`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT for table `blw_otpdaftar`
@@ -10323,7 +10395,7 @@ ALTER TABLE `blw_otpdaftar`
 -- AUTO_INCREMENT for table `blw_otplogin`
 --
 ALTER TABLE `blw_otplogin`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `blw_page`
@@ -10497,7 +10569,7 @@ ALTER TABLE `blw_transaksi`
 -- AUTO_INCREMENT for table `blw_transaksiproduk`
 --
 ALTER TABLE `blw_transaksiproduk`
-  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `blw_transaksi_ppob`
@@ -10558,6 +10630,12 @@ ALTER TABLE `blw_wasap`
 --
 ALTER TABLE `blw_wishlist`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `blw_withdraw`
+--
+ALTER TABLE `blw_withdraw`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `blw_xendit`

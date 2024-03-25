@@ -1,7 +1,7 @@
 
 
 	<!-- Slider -->	
-    <div class="carousel slider">
+    <div class="carousel slider"> 
 		<?php
 			$set = $this->func->globalset("semua");
 			$this->db->where("tgl<=",date("Y-m-d H:i:s"));
@@ -256,6 +256,105 @@
 		</div>
 	</section>
 	<?php } ?>
+
+
+	<?php
+		$this->db->order_by("RAND()");
+		//$this->db->limit(4);
+		$db = $this->db->get("foryou");
+		$notin = [];
+		if($db->num_rows() > 0){
+	?>
+	<!-- For you -->
+	<section class="newproduct p-b-40">
+		<div class="container">
+			<div class="sec-title p-b-30 hidesmall">
+				<h2 class="t-center">
+					<i class="fas fa-bolt text-warning"></i> &nbsp;FOR YOU &nbsp;<i class="fas fa-bolt text-warning"></i>
+				</h2>
+			</div>
+			<div class="section-title p-b-20 showsmall">
+				<div class="row">
+					<div class="col-8 font-bold text-primary fs-20">FOR YOU</div>
+					<div class="col-4 text-right">
+						<button id="viewfsgrid" style="display:none;" class="btn btn-default" type="button" onclick="$('#viewfslist').show();$('#viewfs').toggleClass('produk-list');$(this).hide()"><i class="fas fa-border-all"></i> Grid</button>
+						<button id="viewfslist" class="btn btn-default" type="button" onclick="$('#viewfsgrid').show();$('#viewfs').toggleClass('produk-list');$(this).hide()"><i class="fas fa-bars"></i> List</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Slide2 -->
+			<div class="row display-flex produk-wrap" id="viewfs">
+				<?php
+					$totalproduk = 0;
+					$no =  1;
+					foreach($db->result() as $fs){
+						$notin[] = $fs->idproduk;
+						if($no <= 4){
+						$r = $this->func->getProduk($fs->idproduk,"semua");
+						$totalstok = $fs->stok;
+
+						$totalproduk += 1;
+						$wishis = ($this->func->cekWishlist($r->id)) ? "active" : "";
+						$hargadapat = $fs->harga;
+						$diskon = $r->hargacoret > $hargadapat ? ($r->hargacoret-$hargadapat)/$r->hargacoret*100 : null;
+						$kota = ($r->gudang > 0) ? $this->func->getGudang($r->gudang,"idkab") : $set->kota;
+						$kota = $this->func->getKab($kota,"semua");
+						$kota = $kota->tipe." ".$kota->nama;
+						$fspersen = ($fs->terjual > 0) ? $fs->terjual / ($fs->stok + $fs->terjual) * 100 : 0;
+				?>
+					<div class="col-6 col-md-4 col-lg-3 m-b-30 cursor-pointer produk-item">
+						<!-- Block2 -->
+						<div class="block2">
+							<!-- <div class="block2-wishlist" onclick="tambahWishlist(<?=$r->id?>,'<?=$r->nama?>')"><i class="fas fa-heart <?=$wishis?>"></i></div> -->
+							<?php if($r->digital == 1){ ?><div class="block2-digital bg-primary"><i class="fas fa-cloud"></i> digital</div><?php } ?>
+							<?php if($r->preorder == 1){ ?><div class="block2-digital bg-warning"><i class="fas fa-history"></i> preorder</div><?php } ?>
+							<div class="block2-img wrap-pic-w of-hidden pos-relative" style="background-image:url('<?=$this->func->getFoto($r->id,"utama")?>');" onclick="window.location.href='<?php echo site_url('produk/'.$r->url); ?>'"></div>
+							<div class="block2-txt" onclick="window.location.href='<?php echo site_url('produk/'.$r->url); ?>'">
+								<div class="text-primary m-b-8"><small><i class="fas fa-map-marker-alt"></i> <b><?=$kota?></b></small></div>
+								<a href="<?php echo site_url('produk/'.$r->url); ?>" class="block2-name dis-block p-b-5">
+									<?=$r->nama?>
+								</a>
+								<div class="btn-block">
+									<?php if($r->hargacoret > $hargadapat){ ?><span class="block2-price-coret">Rp. <?=$this->func->formUang($r->hargacoret)?></span><?php } ?>
+									<?php if($diskon != null){ ?><span class="block2-label"><?=round($diskon,0)?>%</span><?php } ?>
+								</div>
+								<span class="block2-price p-r-5 font-medium">
+									<?php 
+										echo "Rp. ".$this->func->formUang($fs->harga);
+									?>
+								</span>
+							</div>
+							<div class="block2-ulasan" onclick="window.location.href='<?php echo site_url('produk/'.$r->url); ?>'">
+								<div class="progress m-b-12">
+									<div class="progress-bar bg-danger" style="width:<?=$fspersen?>%"><?php if($fspersen > 50){ echo "terjual ".$fs->terjual; } ?></div>
+									<div class="progress-bar bg-light text-dark" style="width:<?=100-$fspersen?>%"><?php if($fspersen <= 50){ echo "terjual ".$fs->terjual; } ?></div>
+								</div>
+							</div>
+							<div class="row m-lr-0">
+								<button type="button" class="btn btn-sm btn-light btn-block p-all-12" onclick="addtocart(<?=$r->id?>)"><i class="fas fa-plus text-success"></i> keranjang</button>
+							</div>
+						</div>
+					</div>
+				<?php
+						$no++;
+						}
+					}
+							
+					if($totalproduk == 0){
+						echo "<div class='col-12 text-center m-tb-40'><h2><mark>Produk Kosong</mark></h2></div>";
+					}
+				?>
+			</div>
+
+		</div>
+		<div class="t-center m-tb-20">
+			<a href="<?=site_url("foryou")?>" class="btn btn-primary">Lihat Semua Produk foryou <i class="fas fa-chevron-circle-right"></i></a>
+		</div>
+	</section>
+	<?php } ?>
+
+
 
 	<?php
 		if($set->link_playstore != ""){
