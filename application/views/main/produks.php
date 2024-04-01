@@ -6,7 +6,7 @@
 				Home
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
- 
+  
       <?php
 		$set = $this->func->getSetting("semua");
 		$kategori = $this->func->getKategori($data->idcat,"semua");
@@ -218,6 +218,8 @@
 						  <input type="hidden" name="idproduk" value="<?php echo $data->id; ?>" />
 						  <input type="hidden" id="variasi" name="variasi" value="0" />
 						  <input type="hidden" id="harga" name="harga" value="<?=$result?>" />
+						  <input type="hidden" id="hargabeli" name="hargabeli" value="<?php echo $data->hargabeli; ?>" />
+
 							<div class="p-t-10">
 								<div class="flex-w p-b-10">
 									<?php
@@ -257,7 +259,7 @@
 									
 									<div class="col-12 p-lr-0 m-b-10" id="pilihwarna">
 
-										<button type="button" onclick="change_warna(0)" class="btn btn-outline-primary btn-sm p-lr-20 m-r-6 m-b-8">Original</button>
+										<button type="button" onclick="change_warna('0')" class="btn btn-outline-primary btn-sm p-lr-20 m-r-6 m-b-8">Original</button>
 
 										<?php
 											$this->db->select("SUM(stok) as stok,foto,warna,produkvariasi.id as id,hargadistri,hargaagensp,hargaagen,hargareseller,harga");
@@ -532,7 +534,13 @@
 	<?php }else{ ?>
 	var variasi = false;
 	<?php }?>
-	
+		
+	if (variasi == true) {
+
+		//hapus value 0 variasi ada 
+		$('#variasi').val('');
+	}
+
 	$(function(){
 		$("#pilihwarna .btn").click(function(){
 			$("#pilihwarna .btn").removeClass("btn-primary");
@@ -545,7 +553,17 @@
 			
 			<?php if(count($sizid) == 0){ ?>
 
-				$("#variasi").val($(this).data('variasi'));
+				var v = $(this).data('variasi');
+
+				if (typeof v === "undefined") {
+
+					$("#variasi").val('0');
+					$("#stokrefresh").html("stok: <b><?=$data->stok?></b> pcs");
+				}else{                                                    
+
+					$("#variasi").val($(this).data('variasi'));
+				}
+
 				$("#jumlahorder").attr("max",$(this).data('stok'));
 				$("#stokmaks").html($(this).data('stok'));
 				$("#harga").val($(this).data('harga'));
@@ -591,7 +609,10 @@
 
 		$("#keranjang").on("submit",function(e){
 			e.preventDefault();
-			if(variasi == true && $("#variasi").val() == 0){
+
+			var v = $('#variasi').val();
+
+			if(variasi == true && v == ''){
 				swal.fire("Pilih Varian", "pilih varian produk terlebih dahulu sebelum menambahkan produk ke keranjang", "warning");
 			}else{
 				var submit = $("#submit").html();
@@ -672,7 +693,7 @@
 <script type="text/javascript">
 	function change_warna(foto){
 
-		if (foto == 0) {
+		if (foto == '0') {
 
 			//original
 			$('.prod-thumb-item:eq(0)').click();

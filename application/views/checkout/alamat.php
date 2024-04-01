@@ -110,6 +110,10 @@
         <div class="col-md-4">
             <div class="section p-all-24">
                 <b>Dropship</b>
+
+                <!-- status -->
+                <input type="hidden" id="status" value="0">
+
                 <div class="dropship">
                     <div class="m-t-10">
                         <button type="button" id="nodrop" class="btn btn-primary m-r-10"><i class="fa fa-check-square"></i> Tidak Dropship</button>
@@ -118,6 +122,12 @@
                         <?php if ($this->session->userdata('drp_status') == 1): ?>
                             
                             <button type="button" id="yesdrop" class="btn btn-outline-primary"><i class="fa fa-check-square" style="display:none"></i> Dropship</button>
+
+                            <div id="drop-show" style="display: none;">
+                                <hr>
+                                <button type="button" id="drop-resi" class="btn btn-outline-success"><i class="fa fa-check-square" style="display:none"></i> Resi Otomatis</button>
+                                <button type="button" id="drop-kurir" class="btn btn-outline-success"><i class="fa fa-check-square" style="display:none"></i> Kurir</button>
+                            </div>
 
                         <?php endif ?>
                         
@@ -174,52 +184,125 @@
 
         $("#alamat").on("submit",function(e){
             e.preventDefault();
-            $.post("<?=site_url("checkout/simpanalamat")?>",$(this).serialize(),function(msg){
-                var data = eval("("+msg+")");
-                if(data.success == true){
 
-                    if (data.dropship == true) {
+            var status = $('#status').val();
 
-                        //resi otomatis
-                        loadBayar();    
-                    }else{
+            if (status == 0) {
 
-                        //langsung
+                $.post("<?=site_url("checkout/simpanalamat")?>",$(this).serialize(),function(msg){
+                    var data = eval("("+msg+")");
+                    if(data.success == true){
+                        
+                        //pilih kurir
                         loadKurir();
+
+                    }else{
+                        swal.fire("Gagal Menyimpan Alamat","terjadi kesalahan saat menyimpan alamat Anda. Silahkan ulangi beberapa saat lagi","warning");
                     }
-                    
-                    
-                }else{
-                    swal.fire("Gagal Menyimpan Alamat","terjadi kesalahan saat menyimpan alamat Anda. Silahkan ulangi beberapa saat lagi","warning");
-                }
-            });
+                });
+            }
+
+            if (status == 2) {
+
+                $.post("<?=site_url("checkout/simpanalamat")?>",$(this).serialize(),function(msg){
+                    var data = eval("("+msg+")");
+                    if(data.success == true){
+                        
+                        //langsung bayar
+                        loadBayar();
+
+                    }else{
+                        swal.fire("Gagal Menyimpan Alamat","terjadi kesalahan saat menyimpan alamat Anda. Silahkan ulangi beberapa saat lagi","warning");
+                    }
+                });
+            }
+
         });
 		
 		$("#nodrop").click(function(){
 
-            //langsung
+            //status
+            $('#status').val(0);
+
+            //nodrop
+            $(this).removeClass("btn-outline-primary");
+            $(this).addClass("btn-primary");
+            $(".fa",this).show();
+            $("#drop-show").hide();
+
+            //yesdrop
 			$("#yesdrop").removeClass("btn-primary");
 			$("#yesdrop").addClass("btn-outline-primary");
-			$(this).removeClass("btn-outline-primary");
-			$(this).addClass("btn-primary");
-			$(".fa",this).show()
 			$("#yesdrop .fa").hide();
+
+            //form
 			$("#dropform").hide();
 			$("#dropform input").val("");
 			$("#dropform input").prop("required",false);
+
+            //drop-resi & drop-kurir
+            $("#drop-resi, #drop-kurir").removeClass("btn-success");
+            $("#drop-resi, #drop-kurir").addClass("btn-outline-success");
+            $("#drop-resi .fa, #drop-kurir .fa").hide();
 		});
+
 		$("#yesdrop").click(function(){
 
-            //dropshipper
-			$("#nodrop").removeClass("btn-primary");
-			$("#nodrop").addClass("btn-outline-primary");
-			$(this).removeClass("btn-outline-primary");
-			$(this).addClass("btn-primary");
-			$("#dropform").show();
-			$(".fa",this).show()
-			$("#nodrop .fa").hide();
-			$("#dropform input").prop("required",true);
+            //status
+            $('#status').val(1);
+
+            //yesdrop
+			$("#drop-show").show();
+            $(this).removeClass("btn-outline-primary");
+            $(this).addClass("btn-primary");
+            $(".fa",this).show();
+
+            //nodrop
+            $("#nodrop").removeClass("btn-primary");
+            $("#nodrop").addClass("btn-outline-primary");
+            $("#nodrop .fa").hide();
 		});
+
+        $("#drop-resi").click(function(){
+
+            //status
+            $('#status').val(2);
+
+            //drop-resi
+            $(this).removeClass("btn-outline-success");
+            $(this).addClass("btn-success");
+            $(".fa",this).show();
+
+            //drop-kurir
+            $("#drop-kurir").removeClass("btn-success");
+            $("#drop-kurir").addClass("btn-outline-success");
+            $("#drop-kurir .fa").hide();
+
+            //form
+            $("#dropform").show();
+            $("#dropform input").prop("required",true);
+        });
+
+        $("#drop-kurir").click(function(){
+
+            //status
+            $('#status').val(0);
+
+            //drop-kurir
+            $(this).removeClass("btn-outline-success");
+            $(this).addClass("btn-success");
+            $(".fa",this).show();
+
+            //drop-resi
+            $("#drop-resi").removeClass("btn-success");
+            $("#drop-resi").addClass("btn-outline-success");
+            $("#drop-resi .fa").hide();
+
+            //form
+            $("#dropform").hide();
+            $("#dropform input").val("");
+            $("#dropform input").prop("required",false);
+        });
 
         //LOAD KABUPATEN KOTA & KECAMATAN
         $("#prov").change(function(){

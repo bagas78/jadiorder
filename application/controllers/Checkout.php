@@ -11,7 +11,7 @@ class Checkout extends CI_Controller {
 		\Midtrans\Config::$isProduction = false;
 		\Midtrans\Config::$isSanitized = true;
 		\Midtrans\Config::$is3ds = true;
-
+ 
 		if($this->func->maintenis() == TRUE) {
 			include(APPPATH.'views/maintenis.php');
 

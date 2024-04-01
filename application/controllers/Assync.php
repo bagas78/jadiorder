@@ -606,6 +606,7 @@ class Assync extends CI_Controller {
 			$harga = $prod->harga;
 			$jumlah = intval($_POST["jumlah"]);
 			$koin = $prod->koin;
+			$hargabeli = $_POST["hargabeli"];
 
 			// MINORDER / MINIMAL PEMBELIAN
 			if(intval($_POST["jumlah"]) < $prod->minorder){
@@ -717,6 +718,7 @@ class Assync extends CI_Controller {
 					"tgl"		=> date("Y-m-d H:i:s"),
 					"jumlah"	=> $jumlah,
 					"harga"		=> $harga,
+					"hargabeli"	=> $hargabeli,
 					"flashsale"	=> $flashsale,
 					"keterangan"=> $keterangan,
 					"variasi"	=> $variasi,

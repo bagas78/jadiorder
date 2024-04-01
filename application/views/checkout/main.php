@@ -2,7 +2,7 @@
     $sukses = false;
     $tipeco = (isset($_SESSION["usrid"])) ? 0 : 1;
     $berat = 0;
-    $total = 0;
+    $total = 0; 
     $jenis = null;
     $gudang = null; 
     if(isset($_POST["idproduk"]) AND is_array($_POST["idproduk"]) AND count($_POST["idproduk"]) > 0){

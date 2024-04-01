@@ -4,7 +4,7 @@ class M_withdraw extends CI_Model {
 	
 	//nama tabel
 	var $table = 'blw_transaksi'; 
-
+ 
 	//kolom yang di tampilkan
 	var $column_order = array(null,'blw_transaksi.orderid'); 
 
