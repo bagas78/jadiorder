@@ -5,7 +5,7 @@
 
 <h4 class="page-title">User Withdraw</h4>
 
-<div class="m-b-60">
+<div class="m-b-60"> 
 	<div class="card">
 		<div class="card-body" id="load">
 
@@ -14,12 +14,12 @@
 					<tr>
 						<th>Tanggal</th>
 						<th>Nama User</th>
-		                <th>Kode Bank</th>
-		                <th>No. Rekening</th>
-		                <th>Nominal</th>
-		                <th>Biaya</th>
-		                <th>Status</th>
-		                <th>Aksi</th>
+            <th>Kode Bank</th>
+            <th>No. Rekening</th>
+            <th>Nominal</th>
+            <th>Biaya</th>
+            <th>Status</th>
+            <th>Aksi</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -49,7 +49,7 @@
     			<select name="status" class="form-control" required>
     				<option value="" hidden>-- Pilih --</option>
     				<option value="1">Setuju</option>
-    				<option value="2">Tolak</option>
+    				<option value="3">Tolak</option>
     			</select>
     		</div>
     		<div class="form-group">
@@ -127,7 +127,8 @@ $(document).ready(function() {
                 "render": 
                 function( data ) {
 
-                      return '<button onclick="ver('+data+')" title="verifikasi" class="btn btn-primary btn-sm m-b-4"><i class="fa fa-check"></i> Verifikasi</button>';
+                      return '<button onclick="ver('+data+')" title="verifikasi" class="ver btn btn-primary btn-sm m-b-4"><i class="fa fa-plus-square"></i> Verifikasi</button> '+
+                      '<button onclick="suk('+data+')" title="transaksi terkirim" class="suk btn btn-success btn-sm m-b-4"><i class="fa fa-check-square"></i> Terkirim</button>';
                   }
               },  
          ],
@@ -139,7 +140,27 @@ $(document).ready(function() {
 function ver(id){
 
 	$('#modal').modal('toggle');
-	$('form').attr('action', '<?=base_url('update_akun/verifikasi_witdraw/')?>'+id);
+	$('form').attr('action', '<?=base_url('update_akun/witdraw_verifikasi/')?>'+id);
+}
+
+//sukses
+function suk(id){
+
+	Swal.fire({
+	  title: "Anda yakin?",
+	  text: "Aksi ini tidak dapat di batalkan!",
+	  icon: "warning",
+	  showCancelButton: true,
+	  confirmButtonColor: "#3085d6",
+	  cancelButtonColor: "#d33",
+	}).then((result) => {
+	  if (result) {
+
+	    $(location).attr('href','<?=base_url('update_akun/witdraw_kirim/')?>'+id);
+	  
+	  }
+	});
+
 }
 
 function auto(){
@@ -155,22 +176,29 @@ function auto(){
     	 switch(v) {
 		  case '0':
 		    // menunggu
-		    target.html('<span class="text-primary">Menunggu</span>');
+		    target.html('<span>Menunggu</span>');
 
 		    break;
 		  case '1':
 		    // setuju
-		    target.html('<span class="text-success">Disetujui</span>');
-		    target.closest('tr').find('.btn').css('pointer-events', 'none');
-		    target.closest('tr').find('.btn').removeClass('btn-primary');
-		    target.closest('tr').find('.btn').addClass('btn-secondary');
+		    target.html('<span class="text-primary">Disetujui</span>');
+		    target.closest('tr').find('.ver').css('pointer-events', 'none');
+		    target.closest('tr').find('.ver').removeClass('btn-primary');
+		    target.closest('tr').find('.ver').addClass('btn-secondary');
 		    break;
 		  case '2':
 		    // tolak
+		    target.html('<span class="text-success">Sukses</span>');
+		    target.closest('tr').find('.ver').css('pointer-events', 'none');
+		    target.closest('tr').find('.ver').removeClass('btn-primary');
+		    target.closest('tr').find('.ver').addClass('btn-secondary');
+		    break;
+		  case '3':
+		    // tolak
 		    target.html('<span class="text-danger">Ditolak</span>');
-		    target.closest('tr').find('.btn').css('pointer-events', 'none');
-		    target.closest('tr').find('.btn').removeClass('btn-primary');
-		    target.closest('tr').find('.btn').addClass('btn-secondary');
+		    target.closest('tr').find('.suk').css('pointer-events', 'none');
+		    target.closest('tr').find('.suk').removeClass('btn-primary');
+		    target.closest('tr').find('.suk').addClass('btn-secondary');
 		    break;
 		}
     });

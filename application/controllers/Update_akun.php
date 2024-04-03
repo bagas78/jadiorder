@@ -12,7 +12,7 @@ class Update_akun extends CI_Controller {
 	}
 
 
-	public function save(){ 
+	public function save(){  
 		$akun = $this->session->userdata('usrid');
 
 		if (@$_FILES['ktp']['name']) { 
@@ -425,7 +425,7 @@ class Update_akun extends CI_Controller {
 		//output dalam format JSON
 		echo json_encode($output);
 	}
-	function verifikasi_witdraw($id){
+	function witdraw_verifikasi($id){
 
 		$status = strip_tags(@$_POST['status']);
 
@@ -441,6 +441,22 @@ class Update_akun extends CI_Controller {
 						'status' =>  strip_tags(@$_POST['status']),
 					);
 		}
+
+		$this->db->set($set);
+		$this->db->where('id', $id);
+		if ($this->db->update('blw_withdraw')) {
+			$this->session->set_flashdata('success', 'Data berhasil di simpan');
+		}else{
+			$this->session->set_flashdata('fail', 'Data gagal di simpan');
+		}
+
+		redirect(base_url('update_akun/withdraw'));
+	}
+	function witdraw_kirim($id){
+
+		$set = array(
+						'status' => 2,
+					);
 
 		$this->db->set($set);
 		$this->db->where('id', $id);

@@ -89,7 +89,10 @@ $(document).ready(function() {
                 "render": 
                 function( data ) {
 
-                			if (data == 1) { var s = '<span class="text-success">sukses</span>' }else{ var s = '<span class="text-danger">Di tolak</span>' }
+                			if (data == 1) { var s = '<span class="text-primary">Di Verfikasi</span>'; }
+                			if (data == 2) { var s = '<span class="text-success">Sukses</span>'; }
+                			if (data == 3) { var s = '<span class="text-danger">Di tolak</span>'; }
+
                       return s;
                   }
               },   

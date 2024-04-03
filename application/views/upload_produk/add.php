@@ -297,7 +297,7 @@
 						<input type="number" class="form-control" name="hargacoret" value="<?php echo ($id != 0) ? $data->hargacoret : 0; ?>" required />
 					</div>
 				</div> -->
-				<div class="row m-lr-0 m-b-32">
+				<!-- <div class="row m-lr-0 m-b-32">
 					<div class="col-md-4">
 						<div class="m-b-4"><b>Harga Normal</b> &nbsp;<span class="badge badge-form">wajib</span></div>
 						<div class="fs-12">Harga normal setelah diskon. hanya masukkan angka saja. cth: 200000</div>
@@ -305,7 +305,7 @@
 					<div class="col-md-3 col-6">
 						<input type="number" class="form-control" name="harga" value="<?php echo ($id != 0) ? $data->harga : 0; ?>" required />
 					</div>
-				</div>
+				</div> -->
 				<div class="row m-lr-0 m-b-32">
 					<div class="col-md-4">
 						<div class="m-b-4"><b>Harga Produk</b> &nbsp;<span class="badge badge-form">wajib</span></div>

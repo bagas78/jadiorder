@@ -9,7 +9,7 @@
     $row = $this->db->get("alamat");
 ?>
 <form id="alamat">
-    <div class="row">
+    <div class="row"> 
         <div class="col-md-8">
             <div class="section p-all-24 m-b-20">
                 <input type="hidden" id="tujuan" value="" name="tujuan" />
@@ -132,7 +132,7 @@
                         <?php endif ?>
                         
                     </div>
-                    <div class="p-t-20" id="dropform" style="display:none;">
+                    <div class="p-t-20" id="dropform-resi" style="display:none;">
                         <div class="m-b-12">
                             <label class="m-b-4">Nama Pengirim</label>
                             <input type="text" name="dropship" class="form-control" placeholder="" />
@@ -150,6 +150,18 @@
                             <input type="text" name="dropshipresi" class="form-control" placeholder="" />
                         </div>
                     </div>
+
+                    <div class="p-t-20" id="dropform-kurir" style="display:none;">
+                        <div class="m-b-12">
+                            <label class="m-b-4">Nama Pengirim</label>
+                            <input type="text" name="dropship" class="form-control" placeholder="" />
+                        </div>
+                        <div class="m-b-12">
+                            <label class="m-b-4">No Telepon</label>
+                            <input type="text" name="dropshipnomer" class="form-control" placeholder="" />
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -235,10 +247,15 @@
 			$("#yesdrop").addClass("btn-outline-primary");
 			$("#yesdrop .fa").hide();
 
-            //form
-			$("#dropform").hide();
-			$("#dropform input").val("");
-			$("#dropform input").prop("required",false);
+            //form resi
+			$("#dropform-resi").hide();
+			$("#dropform-resi input").val("");
+			$("#dropform-resi input").prop("required",false);
+
+            //form kurir
+            $("#dropform-kurir").hide();
+            $("#dropform-kurir input").val("");
+            $("#dropform-kurir input").prop("required",false);
 
             //drop-resi & drop-kurir
             $("#drop-resi, #drop-kurir").removeClass("btn-success");
@@ -278,9 +295,14 @@
             $("#drop-kurir").addClass("btn-outline-success");
             $("#drop-kurir .fa").hide();
 
-            //form
-            $("#dropform").show();
-            $("#dropform input").prop("required",true);
+            //form resi
+            $("#dropform-resi").show();
+            $("#dropform-resi input").prop("required",true);
+
+            //form kurir
+            $("#dropform-kurir").hide();
+            $("#dropform-kurir input").val("");
+            $("#dropform-kurir input").prop("required",false);
         });
 
         $("#drop-kurir").click(function(){
@@ -298,10 +320,14 @@
             $("#drop-resi").addClass("btn-outline-success");
             $("#drop-resi .fa").hide();
 
-            //form
-            $("#dropform").hide();
-            $("#dropform input").val("");
-            $("#dropform input").prop("required",false);
+            //form kurir
+            $("#dropform-kurir").show();
+            $("#dropform-kurir input").prop("required",true);
+
+            //form resi
+            $("#dropform-resi").hide();
+            $("#dropform-resi input").val("");
+            $("#dropform-resi input").prop("required",false);
         });
 
         //LOAD KABUPATEN KOTA & KECAMATAN

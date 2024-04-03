@@ -34,7 +34,7 @@ class Upload_produk extends CI_Controller {
 			
 			//data
 			$data = [
-				"tgl"	=> date("Y-m-d H:i:s"),
+				"tglbuat"	=> date("Y-m-d H:i:s"),
 				"nama"	=> @$_POST["nama"],
 				"deskripsi"=> @$_POST["deskripsi"],
 			];
@@ -116,11 +116,11 @@ class Upload_produk extends CI_Controller {
 	}
 	function withdraw_nominal(){
 
-		$user = $_SESSION["usrid"];
+		$user = $_SESSION["usrid"]; 
 
 		$t = $this->db->query("SELECT SUM(b.hargabeli * b.jumlah) as total FROM blw_transaksi AS a JOIN blw_transaksiproduk AS b ON a.id = b.idtransaksi JOIN blw_produk AS c ON b.idproduk = c.id WHERE c.`user` = '$user'")->row_array();
 
-		$w = $this->db->query("SELECT SUM(nominal) AS nominal FROM blw_withdraw WHERE user = '$user' AND status != 2 AND hapus = 0")->row_array();
+		$w = $this->db->query("SELECT SUM(nominal) AS nominal FROM blw_withdraw WHERE user = '$user' AND status = 2 AND hapus = 0")->row_array();
 
 		$x = @$t['total'] - @$w['nominal'];
 
